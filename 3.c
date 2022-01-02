@@ -1,28 +1,21 @@
 #include<stdio.h>
-void Display(char*src,char*dest)
-{
-    while(*src!='\0')
-    {
-        *dest=*src;
-        if ((*src>='a')&&(*src<='z'))
-        {
-            *dest=*dest-32;   
-        }
-       
-         src++;
-        dest++;
-    }
-    dest;
-}
+#include<stdlib.h>
+#include<unistd.h>
+#include<fcntl.h>
+
 int main()
 {
-    char Arr[30];
-    char Brr[30];
-    printf("Enter String:");
-    scanf("%[^\n]s",Arr);
+    int fd=0,iRet=0;
+    char Fname[30];
+    char Buffer[1024];
 
-    printf("Before:%s\n",Arr);
-    Display(Arr,Brr);
-    printf("After:%s",Brr);
-    return 0;
+    printf("Enter file name:");
+    scanf("%s",Fname);
+    fd=open(Fname,O_RDONLY);
+    printf("Data is:");
+    while ((iRet=read(fd,Buffer,sizeof(Buffer)))!=0)
+    {
+        write(1,Buffer,iRet);
+    }
+    close(fd);
 }

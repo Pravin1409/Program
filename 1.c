@@ -1,20 +1,22 @@
 #include<stdio.h>
-typedef unsigned int UINT;
-UINT OffBit(UINT ino)
-{
-    UINT mask=0xFFFFFFBF;
-    UINT Result=0;
-    Result=ino&mask;
-     return Result;
-}
+#include<stdlib.h>
+#include<unistd.h>
+#include<fcntl.h>
+
 int main()
 {
-    UINT ino=0;
-    UINT iRet=0;
-    printf("Enter number");
-    scanf("%d",&ino);
-    iRet=OffBit(ino);
-
-    printf(" value:%d",iRet);
-    return 0;
+    int fd=0;
+    char Fname[30];
+    printf("Enter file name:");
+    scanf("%s",Fname);
+    fd=open(Fname,O_RDONLY);
+    if (fd==-1)
+    {
+        printf("Unablen OPen\n");
+    }
+    else
+    {
+        printf("succesfully open.");
+    }
+    
 }

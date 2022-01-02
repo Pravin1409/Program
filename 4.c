@@ -1,28 +1,24 @@
 #include<stdio.h>
-void Display(char*src,char*dest)
-{
-    while(*src!='\0')
-    {
-        *dest=*src;
-        if ((*dest>='A')&&(*dest<='Z'))
-        {
-            *dest=*dest+32;
-        }
-        src++;
-        dest++;
-        
-    }
-    dest;
-}
+#include<stdlib.h>
+#include<unistd.h>
+#include<fcntl.h>
 int main()
 {
-    char Arr[30];
-    char Brr[30];
-
-    printf("Enter the the string:");
-    scanf("%[^\n]s",Arr);
-     printf("Before :%s\n",Arr);
-    Display(Arr,Brr);
-   printf("After:%s",Brr);
-   return 0;
+    int fd=0,iRet=0;
+    char Fname[30];
+    char Data[56];
+    printf("Enter file name:");
+    scanf("%s",Fname);
+    fd=open(Fname,O_RDWR);
+    if (fd==-1)
+    {
+        printf("unable open");
+    }
+    else 
+    {
+        printf("file size is:%d\n",fd);
+    }
+    iRet=read(fd,Data,56);
+    printf("size of file is %d bytes",iRet);
+   
 }

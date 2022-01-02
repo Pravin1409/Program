@@ -1,14 +1,23 @@
 #include<stdio.h>
-void Display(char Arr[])
-{
-  
-}
+#include<stdlib.h>
+#include<unistd.h>
+#include<fcntl.h>
 int main()
 {
-    char Arr[30];
-    printf("Enter String:");
-    scanf("%[^\n]s",Arr);
+    int fd=0;
+    char Fname[50];
+    printf("enter file name:");
+    scanf("%s",Fname);
 
-    Display(Arr);
-    return 0;
+    fd=creat(Fname,0777);
+    if (fd==-1)
+    {
+        printf("Unable create.");
+    }
+    else
+    {
+        printf("Succesfullyn Creat file.");
+    }
+    
+    
 }
