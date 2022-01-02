@@ -1,37 +1,20 @@
 #include<stdio.h>
-void Display(char *str,char*dest)
+typedef unsigned int UINT;
+UINT OffBit(UINT ino)
 {
-    char*start=str;
-    char*end=dest;
-    char temp;
-    while (*end!='\0')
-    {
-        end++;
-    }
-    end--;
-    while (start<end)
-    {
-        temp=*start;
-        *start=*end;
-        *end=temp;
-         start++;
-        end--;
-
-        *dest=temp;
-        dest--;
-        
-    }
-dest;
+    UINT mask=0xFFFFFFBF;
+    UINT Result=0;
+    Result=ino&mask;
+     return Result;
 }
 int main()
 {
-    char Arr[30];
-    char Brr[30];
+    UINT ino=0;
+    UINT iRet=0;
+    printf("Enter number");
+    scanf("%d",&ino);
+    iRet=OffBit(ino);
 
-    printf("Enter srting:");
-    scanf("%[^'\n']s",Arr);
-    scanf("%[^\n]s",Brr);
-    Display(Arr,Brr);
-    printf("string are:%s",Brr);
+    printf(" value:%d",iRet);
     return 0;
 }
