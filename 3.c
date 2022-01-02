@@ -2,20 +2,30 @@
 #include<stdlib.h>
 #include<unistd.h>
 #include<fcntl.h>
-
+int CountSpace(char Fname[])
+{
+    int fd=0,i=0,iRet=0,icnt=0;
+    char Buffer[1024];
+    fd=open(Fname,O_RDWR);
+    while((iRet=read(fd,Buffer,sizeof(Buffer))))
+    {
+        for(i=0;i<iRet;i++)
+        {
+            if(Buffer[i]==' ')
+            {
+                icnt++;
+            }
+        }
+        return icnt;
+    }
+}
 int main()
 {
-    int fd=0,iRet=0;
+    int iRet=0;
     char Fname[30];
-    char Buffer[1024];
-
-    printf("Enter file name:");
+    printf("Enter the file name:");
     scanf("%s",Fname);
-    fd=open(Fname,O_RDONLY);
-    printf("Data is:");
-    while ((iRet=read(fd,Buffer,sizeof(Buffer)))!=0)
-    {
-        write(1,Buffer,iRet);
-    }
-    close(fd);
+    iRet=CountSpace(Fname);
+    printf("count of space is: %d",iRet);
+    return 0;
 }
