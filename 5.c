@@ -1,35 +1,17 @@
-/*
-Write a program which accept range from user and display all number in between that range in reverse order
-*/
-
 #include<stdio.h>
-void Display(int Start,int End)
+void Display(int ino)
 {
-
     int icnt=0;
-    if(Start>End)
+    for(icnt=1;icnt<=ino;icnt++)
     {
-        printf("Invslid range");
+        printf("%d\t",icnt*2);
     }
-    for(icnt=End;icnt>=Start;icnt--)
-    {
-        printf("%d\n",icnt);
-    }
-
-
 }
 int main()
 {
-    int ivalue1;
-    int ivalue2;
-
-    printf("Enter the number :");
-    scanf("%d",&ivalue1);
-
-    printf("End point:");
-    scanf("%d",&ivalue2);
-
-    Display(ivalue1,ivalue2);
-
-    return 0;
+    int ivalue=0;
+    printf("enter number");
+    scanf("%d",&ivalue);
+    Display(ivalue);
+     return 0;
 }
