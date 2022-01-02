@@ -1,41 +1,46 @@
 /*
-Write  a program which accept distance and convert it into meter.
+write a program which range  number from user and return addition of all number in between that range.(range should contain positive number only) 
 */
 #include<stdio.h>
-int KMtoMeter(int ino)
+int RangeSum(int Start,int End)
 {
-    if (ino<0)
-    {
-        ino=-ino;
-    }
-    // if (ino==0)
-    // {
-    //     printf("you enter 0");
-    // }
-    
-    int meter=1000;
+   
     int icnt=0;
-    int KM=0;
-
-    for(icnt=0;icnt<=ino;icnt++)
+    int isum=0;
+    
+    if ((Start<0)&&(End>0))
     {
-      KM=meter*ino;
-
+        printf("Invalid range\n");
     }
-return KM;
-
+    if(Start>End)
+    {
+        printf("Invalid Range");
+    }
+   else
+   {
+        for (icnt = Start; icnt <= End; icnt++)
+    {
+        isum=isum+icnt;
+    }
+    return isum;
+   }
 }
+
+
 int main()
 {
-    int ivalue=0;
+    int ivalue1=0;
+    int ivalue2=0;
     int iRet=0;
 
-    printf("Enter Distance:");
-    scanf("%d",&ivalue);
+    printf("Enter the 1number: ");
+    scanf("%d",&ivalue1);
+    printf("Enter the Second number: ");
+    scanf("%d",&ivalue2);
 
-    iRet=KMtoMeter(ivalue);
-    printf("%d meter",iRet);
+    iRet=RangeSum(ivalue1,ivalue2);
+    printf("Addition is %d",iRet);
 
 
-    return 0;
+     return 0;
 }

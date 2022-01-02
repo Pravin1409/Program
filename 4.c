@@ -1,32 +1,48 @@
 /*
-write a program which accept tempreture in Fahrenheit and convert it into celsius.
+Write the program accept range from user and return addition of all even number in between range.
 */
-
 #include<stdio.h>
-double FhtoCelsius(float no)
+int RangeSumEven(int Start,int End)
 {
     int icnt=0;
-    // float celsius=(no-32);
-    float celsious=0;
-    for(icnt=0;icnt<=no;icnt++)
-    {
-        celsious=(icnt-32)*0.555;
-    }
-    
-    return celsious;
+    int isum=0;
 
+    if(Start<0)
+    {
+        printf("Invalid choice");
+    }
+    else
+    {
+    for(icnt=Start;icnt<=End;icnt++)
+    {
+        if(icnt%2==0)
+        {
+           isum=isum+icnt;
+        }
+    }
+    return isum;
+    }
 
 }
-int main()
+
+
+int  main()
 {
-    float value=0;
-    double dRet=0;
+    int ivalue1=0;
+    int ivalue2=0;
+    int iRet=0;
 
-    printf("Enter temp in Fh:");
-    scanf("%f",&value);
+    printf("Enter Start point");
+    scanf("%d",&ivalue1);
 
-    dRet=FhtoCelsius(value);
-    printf("%f celsius",dRet);
+    printf("Enter End point");
+    scanf("%d",&ivalue2);
+
+    iRet=RangeSumEven(ivalue1,ivalue2);
+    printf("%d",iRet);
+
+
+
 
     return 0;
 }

@@ -1,25 +1,35 @@
 /*
-Write a program which accept area in square feet and convert it into square meter (1square feet=0.0929)
+Write a program which accept range from user and display all number in between that range in reverse order
 */
+
 #include<stdio.h>
-double SquareMeter(int ino)
+void Display(int Start,int End)
 {
-    float Area=0;
+
     int icnt=0;
-    float Squarefeet=0.0929;
-    for(icnt=0;icnt<=ino;icnt++)
+    if(Start>End)
     {
-        Area=Squarefeet*ino;
+        printf("Invslid range");
     }
-    return Area;
+    for(icnt=End;icnt>=Start;icnt--)
+    {
+        printf("%d\n",icnt);
+    }
+
+
 }
 int main()
 {
-    int ivalue=0;
-    double dRet=0;
-    printf("Enter area in square feet");
-    scanf("%d",&ivalue);
-    dRet=SquareMeter(ivalue);
-    printf("area in square meter=%f",dRet);
+    int ivalue1;
+    int ivalue2;
+
+    printf("Enter the number :");
+    scanf("%d",&ivalue1);
+
+    printf("End point:");
+    scanf("%d",&ivalue2);
+
+    Display(ivalue1,ivalue2);
+
     return 0;
 }

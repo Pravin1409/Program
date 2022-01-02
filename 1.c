@@ -1,26 +1,32 @@
 /*
-Write a program which accept radius of circle from user and calculate its area.
-consider value of PI as 3.14 (Area=Radius*Radius)
+Write a program which accept number from user and display all number in between that range. 
 */
-
 #include<stdio.h>
-double AreaCircle(int Radius)
-{
-    float Area=0;
+void Range(int Start,int End)
+{   if (Start>End)
+    {
+        printf("Invalid range");
+    }
 
-    Area= 3.14*Radius*Radius;
-    return Area;
+    int icnt=0;
+    for(icnt=Start;icnt<=End;icnt++)
+    {
+        printf("%d\n",icnt);
+    }
 }
 int main()
 {
-    float fvalue=0;
-    double dRet=0;
+    int ivalue1=0;
+    int ivalue2=0;
 
-    printf("Enter Radius of circle");
-    scanf("%f",&fvalue);
+    printf("Enter the 1st number:");
+    scanf("%d",&ivalue1);
 
-    dRet=AreaCircle(fvalue);
-    printf("Area=%f",dRet);
+    printf("enter the 2nd number:");
+    scanf("%d",&ivalue2);
 
-    return 0;
+    Range(ivalue1,ivalue2);
+
+
+     return 0;
 }
