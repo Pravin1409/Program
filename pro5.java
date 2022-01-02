@@ -1,46 +1,67 @@
 import java.util.*;
-class StringX
+
+
+class ArrayX
 {
-    public String str;
+    public int Arr[];
+    public ArrayX(int isize)
+    {
+        Arr=new int [isize];
+    }
+
     public void Accept()
     {
         Scanner sobj=new Scanner(System.in);
-        System.out.println("Enter string:");
-        str=sobj.nextLine();
-
+        System.out.println("Enter elemnts:");
+        int i=0;
+        for(i=0;i<Arr.length;i++)
+        {
+            Arr[i]=sobj.nextInt();
+        }
     }
+
     public void Display()
     {
-        System.out.println("hello:"+str);
+        System.out.println("Elemente are:");
+        int i=0;
+        for(i=0;i<Arr.length;i++)
+        {
+            System.out.println(Arr[i]);
+        }
     }
 }
-class Marvellous extends StringX
+class Marvellous extends ArrayX
 {
-    public String Reverse()
+    public Marvellous(int ivalue)
     {
-        char Arr[]=str.toCharArray();
-        int start=0,end=Arr.length-1;
-        char temp;
-        while(start<end)
+        super(ivalue);
+    }
+    public void Show()
+    {
+        int i=0;
+        for(i=0;i<Arr.length;i++)
         {
-            temp=Arr[start];
-            Arr[start]=Arr[end];
-            Arr[end]=temp;
-            start++;
-            end--;
+            if(Arr[i]%11==0)
+            {
+                System.out.println(Arr[i]);
+            }
         }
-        return new String(Arr);
     }
 }
 class pro5
 {
-    public static void main(String Arg[])
+    public static void main(String arg[])
     {
-        Marvellous mobj=new Marvellous();
-        String s;
+        Scanner sobj=new Scanner(System.in);
+        int ilength=0;
+        System.out.println("Enter size:");
+        ilength=sobj.nextInt();
+
+        Marvellous mobj=new Marvellous(ilength);
+
         mobj.Accept();
         mobj.Display();
-        s=mobj.Reverse();
-        System.out.println("String Are:"+s);
+        System.out.println("number are:");
+        mobj.Show();
     }
 }

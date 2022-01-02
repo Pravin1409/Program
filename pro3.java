@@ -1,45 +1,89 @@
-
 import java.util.*;
-class StringX
+
+class ArrayX
 {
-    public String str;
+    public int Arr[];
+    public ArrayX(int isize)
+    {
+        Arr=new int[isize]; 
+
+    }
     public void Accept()
     {
-    Scanner sobj=new Scanner(System.in);
-    System.out.println("Enter String:");
-    str=sobj.nextLine();
-    
-    }
-}
-class Marvellos extends StringX
-{
-    public int Count()
-    {
-        int i=0,icnt=0,pcnt=0;
-        char Arr[]=str.toCharArray();
+        Scanner sobj=new Scanner(System.in);
+        int i=0;
+        System.out.println("Enter the number:");
         for(i=0;i<Arr.length;i++)
         {
-            if(Arr[i]>'A'&&Arr[i]<'Z')
+            Arr[i]=sobj.nextInt();
+        } 
+        
+    }
+
+    public void Display()
+    {
+        System.out.println("Elements Are:");
+        int i=0;
+        for(i=0;i<Arr.length;i++)
+        {
+            System.out.println(Arr[i]);
+        }
+    }
+}
+class Marvellous extends ArrayX
+{
+    public Marvellous(int ivalue)
+    {
+        super(ivalue);
+    }
+
+    public boolean Show(int ino)
+    {
+        int i=0;
+        for(i=0;i<Arr.length;i++)
+        {
+            if(Arr[i]==ino)
             {
-                icnt++;
-            }
-            else if(Arr[i]>'a'&&Arr[i]<'z')
-            {
-                pcnt++;
+                break;
             }
         }
-        return pcnt- icnt;
+        if(i==Arr.length)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 }
 class pro3
 {
-    public static void main(String arg []) 
+    public static void main(String arg[])
     {
-        int iRet=0;
-        Marvellos mobj=new Marvellos();
+        Scanner sobj=new Scanner(System.in);
+        int ilength=0,ino=0;
+        boolean bRet=false;
+        System.out.println("Enter size:");
+        ilength=sobj.nextInt();
+
+        
+        Marvellous mobj=new Marvellous(ilength);
         mobj.Accept();
-        iRet=mobj.Count();
-        System.out.println("Count Are:"+iRet);
+        System.out.println("Enter another number:");
+        ino=sobj.nextInt();
+
+        // mobj.Display();
+        System.out.println("Result:");
+        bRet=mobj.Show(ino);
+        if(bRet==true)
+        {
+            System.out.println("yes");
+        }
+        else
+        {
+            System.out.println("no");
+        }
+
     }
-   
 }
