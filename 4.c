@@ -1,26 +1,17 @@
 #include<stdio.h>
-int Small(int no)
+void Display()
 {
-    static int iDigit=0,min=0;
-    if(no!=0)
+    
+     static i=1,ch='A';
+    if(i<=5)
     {
-        iDigit=no%10;
-        if(iDigit<min)
-        {
-            min=iDigit;
-        }
-     no=no/10;
-     Small(no);
+        printf("%c\t",ch);
+        i++,ch++;
+        Display();
     }
-    return min;
 }
 int main()
 {
-    int no=0;
-    int iRet=0;
-    printf("Enter number: ");
-    scanf("%d",&no);
-    iRet=Small(no);
-    printf("Small Digit are:%d",iRet);
+    Display();
     return 0;
 }

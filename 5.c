@@ -1,24 +1,17 @@
 #include<stdio.h>
-int Reverse(int no)
+void Display()
 {
-     static int Rev=0,iDigit=0;
-    if(no!=0)
+    
+     static i=1,ch='a';
+    if(i<=6)
     {
-        iDigit=no%10;
-        Rev=(Rev*10)+iDigit;
-        no=no/10;
-        Reverse(no);
+        printf("%c\t",ch);
+        i++,ch++;
+        Display();
     }
-    return Rev;
-
 }
 int main()
 {
-    int no=0;
-    int iRet=0;
-    printf("Enter number:\n");
-    scanf("%d",&no);
-    iRet=Reverse(no);
-    printf("Reverse num,ber are:%d",iRet);
+    Display();
     return 0;
 }

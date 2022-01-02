@@ -1,27 +1,22 @@
 #include<stdio.h>
-
-int CountSpace(char*str)
+void Disply(int no)
 {
-   static int icnt=0;
-    if(*str!='\0')
-    {
-        if(*str==' ')
-        {
-            icnt++;
-        }
-        str++;
-        CountSpace(str);
-    }
-    return icnt;
+   static int i=1;
+   
+   if(i<=no)
+   {
+       printf("*\t");
+       i++;
+       Disply(no);
+   }
 }
-int main()
-{
-    char Arr[20];
-    int iRet=0;
-    printf("Enter string: ");
-    scanf("%[^\n]s",Arr);
 
-    iRet=CountSpace(Arr);
-    printf("Count of white space are:%d",iRet);
+int main()
+
+{
+    int no=0;
+    printf("Enter number");
+    scanf("%d",&no);
+    Disply(no);
     return 0;
 }

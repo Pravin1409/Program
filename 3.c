@@ -1,25 +1,16 @@
 #include<stdio.h>
-int Count(char*str)
+void Display()
 {
-    static int icnt=0;
-    if(*str!='\0')
+    static int i=5;
+    if(i>=1)
     {
-        if((*str>='a')&&(*str<='z'))
-        {
-            icnt++;
-        }
-        str++;
-        Count(str);
+        printf("%d\t",i);
+        i--;
+    Display();
     }
-    return icnt;
 }
 int main()
 {
-    char Arr[30];
-    int iRet=0;
-    printf("Enter the string\n");
-    scanf("%[^\n]s",Arr);
-    iRet=Count(Arr);
-    printf("Count of small char is:%d",iRet);
+    Display();
     return 0;
 }

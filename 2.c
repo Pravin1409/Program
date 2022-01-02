@@ -1,27 +1,19 @@
 #include<stdio.h>
-int Max(int no)
+void Display()
 {
-   static int idigit=0,max=0;
-    if(no!=0)
+   static int i=4;
+    
+    if(i>=1)
     {
-        idigit=no%10;
-        if(idigit>max)
-        {
-            max=idigit;
-        }
-        no=no/10;
-        Max(no);
+        printf("%d\t",i);
+        i--;
+        Display();
     }
-    return idigit;
 }
 int main()
 {
-    int no=0;
-    int iRret=0;
-
-    printf("Enter the nuber\n");
-    scanf("%d",&no);
-    iRret=Max(no);
-    printf("Maximum digit are:%d",iRret);
+    
+   
+    Display();
     return 0;
 }
