@@ -1,20 +1,23 @@
 #include<iostream>
 using namespace std;
 typedef unsigned int UINT;
-UINT ToggleBit(UINT iNo)
+UINT ToggleNibble(UINT iNo)
 {
-    UINT iMask=0x00000240;
-    UINT iResult=0;
-    iResult=iNo^iMask;
-    return iResult;
+    UINT iMask=0xF000000F;
+    UINT iResulte=0;
+
+    iResulte=iNo^iMask;
+    return iResulte;
+
 }
 int main()
 {
     UINT ino=0,iRet=0;
-    cout<<"Enter the number:\n";
+    cout<<"Enter number:";
     cin>>ino;
 
-    iRet=ToggleBit(ino);
+    iRet= ToggleNibble(ino);
     cout<<"modified number are:"<<iRet<<"\n";
+
     return 0;
 }

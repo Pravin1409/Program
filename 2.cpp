@@ -1,21 +1,22 @@
 #include<iostream>
 using namespace std;
 typedef unsigned int UINT;
-UINT OffBit(UINT iNo)
+UINT OffBit(UINT iNo,UINT iPos)
 {
-    UINT iMask=0xFFFFFFBF;
+    UINT imask=0x0000001;
     UINT iResult=0;
-    iResult=iNo&iMask;
+    imask=imask<<(iPos-1);
+    iResult=iNo&imask;
     return iResult;
 }
 int main()
 {
-    UINT ino=0,iRet=0;
-    cout<<"Enter the number:\n";
+    UINT ino=0,iPos=0,iRet=0;
+    cout<<"Enter number:\n";
     cin>>ino;
-
-    iRet=OffBit(ino);
-
-    cout<<"Modified number Are: "<<iRet<<endl;
-    
+    cout<<"Enter position:\n";
+    cin>>iPos;
+    iRet=OffBit(ino,iPos);
+    cout<<"modified number"<<iRet<<"\n";
+    return 0;
 }
