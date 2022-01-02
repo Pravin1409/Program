@@ -1,36 +1,70 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<unistd.h>
-#include<fcntl.h>
-int Count(char Fname[],char ch)
+#include<stdbool.h>
+#define TRUE 1
+#define FALSE 0
+typedef int BOOL;
+struct node
 {
-    int fd=0,iRet=0,i=0,icnt=0;
-    char Buffer[1024];
-    fd=open(Fname,O_RDWR);
-    while ((iRet=read(fd,Buffer,sizeof(Buffer)))!=0)
+int Data;
+struct node *Next;
+};
+typedef struct node NODE;
+typedef struct node* PNODE;
+typedef struct node** PPNODE;
+void InsertFirst(PPNODE Head , int no )
+{
+PNODE newn = NULL;
+newn = (PNODE)malloc(sizeof(NODE));
+newn->Next = NULL;
+newn->Data = no;
+if (*Head == NULL)
+{
+*Head = newn;
+}
+else
+{
+newn -> Next = *Head;
+*Head = newn;
+}
+}
+
+void Display(PNODE Head)
+{
+    while (Head!=NULL)
     {
-        for(i=0;i<iRet;i++)
-        {
-            if(Buffer[i]==ch)
-            {
-                icnt++;
-            }
-        }
-        return icnt;
+        printf("%d\t",Head->Data);
+        Head=Head->Next;
     }
     
 }
+int Max(PNODE Head)
+{
+    int i=1;
+    int max=0;
+    while(Head!=NULL)
+    {
+        if(Head->Data>max)
+        {
+            max=Head->Data;
+        }
+        i++;
+       Head=Head->Next;
+    }
+     return max;
+}
 int main()
 {
-    int iRet=0;
-    char Fname[20];
-    char ch;
-    printf("Enter file name:");
-    scanf("%s",Fname);
-    printf("Enter character:");
-    scanf(" %c",&ch);
+PNODE First = NULL;
+int iRet=0;
+InsertFirst(&First, 240);
+InsertFirst(&First, 320);
+InsertFirst(&First, 230);
+InsertFirst(&First, 110);
 
-    iRet=Count(Fname,ch);
-    printf("Count Are:%d",iRet);
-    return 0;
+// Call all functions for below problem statements.
+Display(First);
+iRet=Max(First);
+printf("Maximum are:%d",iRet);
+return 0;
 }

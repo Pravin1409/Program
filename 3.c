@@ -1,31 +1,68 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<unistd.h>
-#include<fcntl.h>
-int CountSpace(char Fname[])
+#include<stdbool.h>
+#define TRUE 1
+#define FALSE 0
+typedef int BOOL;
+struct node
 {
-    int fd=0,i=0,iRet=0,icnt=0;
-    char Buffer[1024];
-    fd=open(Fname,O_RDWR);
-    while((iRet=read(fd,Buffer,sizeof(Buffer))))
+int Data;
+struct node *Next;
+};
+typedef struct node NODE;
+typedef struct node* PNODE;
+typedef struct node** PPNODE;
+void InsertFirst(PPNODE Head , int no )
+{
+PNODE newn = NULL;
+newn = (PNODE)malloc(sizeof(NODE));
+newn->Next = NULL;
+newn->Data = no;
+if (*Head == NULL)
+{
+*Head = newn;
+}
+else
+{
+newn -> Next = *Head;
+*Head = newn;
+}
+}
+
+void Display(PNODE Head)
+{
+    while (Head!=NULL)
     {
-        for(i=0;i<iRet;i++)
-        {
-            if(Buffer[i]==' ')
-            {
-                icnt++;
-            }
-        }
-        return icnt;
+        printf("%d\t",Head->Data);
+        Head=Head->Next;
     }
+    
+}
+int Addition(PNODE Head)
+{
+    int i=1;
+    int sum=0;
+    while(Head!=NULL)
+    {
+        sum=sum+Head->Data;
+        i++;
+       Head=Head->Next;
+    }
+     return sum;
 }
 int main()
 {
-    int iRet=0;
-    char Fname[30];
-    printf("Enter the file name:");
-    scanf("%s",Fname);
-    iRet=CountSpace(Fname);
-    printf("count of space is: %d",iRet);
-    return 0;
+PNODE First = NULL;
+int iRet=0;
+InsertFirst(&First, 40);
+InsertFirst(&First, 30);
+InsertFirst(&First, 20);
+InsertFirst(&First, 10);
+
+// Call all functions for below problem statements.
+Display(First);
+iRet=Addition(First);
+printf("Addition Are:%d",iRet);
+
+return 0;
 }
