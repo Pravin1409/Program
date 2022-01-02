@@ -2,24 +2,32 @@
 void Display(int irow,int icol)
 {
     int i=0,j=0;
-    for(i=1;i<=irow;i++)
+    char ch='A';
+    char ch1='a';
+    for(i=1,ch='A',ch1='a';i<=irow;i++,ch++,ch1++)
     {
-        for(j=1;j<=icol;j++)
+        for(j=1,ch='A',ch1='a';j<=icol;j++,ch++,ch1++)
         {
-            printf("%d\t",j);
+            if (i%2==0)
+            {
+             printf("%c\t",ch1);
+            }
+            else{
+                printf("%c\t",ch);
+            }
+          
         }
-        printf("\n");
+          printf("\n");
     }
 }
 int main()
 {
-    int ivalue1=0;
-    int ivalue2=0;
+    int ivalue1=0,ivalue2=0;
 
     printf("Enter Row:\n");
     scanf("%d",&ivalue1);
 
-    printf("Enter Cols:\n");
+    printf("Enter Col:\n");
     scanf("%d",&ivalue2);
 
     Display(ivalue1,ivalue2);

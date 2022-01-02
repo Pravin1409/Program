@@ -1,30 +1,25 @@
 #include<stdio.h>
-void Display(int irow,int icols)
+void Display(int irow,int icol)
 {
-    int i=0;
-    int j=0;
-    for(i=1;i<=irow;i++)
+    int i=0,j=0;
+    char ch='\0';
+    for(i=1,ch='A';i<=irow;i++,ch++)
     {
-        for(j=1;j<=icols;j++)
+        for(j=1,ch='A';j<=icol;j++,ch++)
         {
-            printf("*\t");
+                printf("%c\t",ch);
         }
         printf("\n");
     }
-
-
 }
 int main()
 {
-    int ivalue1=0;
-    int ivalue2=0;
-    printf("Enter 1st\n");
+    int ivalue1=0,ivalue2=0;
+    printf("Enter row:\n");
     scanf("%d",&ivalue1);
 
-    printf("Enter 2st\n");
+    printf("Enter Col:\n");
     scanf("%d",&ivalue2);
-
-    Display(ivalue1,ivalue2);
-
+     Display(ivalue1,ivalue2);
      return 0;
 }
