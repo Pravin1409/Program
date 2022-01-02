@@ -1,5 +1,5 @@
 /*
-write  a program which accept number from user and return summation of its non factor
+write  a program which accept number from user and return summation of its factor
 */
 
 #include<stdio.h>
@@ -7,11 +7,11 @@ int SumNonFact(int ivalue)
 {
     int  icnt=0;
     int sum=0;
-    for(icnt=1;icnt<=ivalue;icnt++)
+    for(icnt=1;icnt<=ivalue/2;icnt++)
     {
-        if ((ivalue%icnt)!= 0)
+        if ((ivalue%icnt)== 0)
         {
-            sum=sum+icnt;
+         sum=sum+icnt;
         }
     }
  return sum;

@@ -1,29 +1,39 @@
+/*
+write a program which accept number from user and display its factor in decreasing order
+
+input:12
+Output:6  4   3   2   1
+
+input:13
+output:1
+
+input:10
+output:5  2   1
+*/
 #include<stdio.h>
-void DisplayFactor( int ivalue)
+ void Display(int ivalue)
+ {
+        if(ivalue<0)
+      {
+        ivalue=-ivalue;
+      }
+
+ int icnt=0;
+ for(icnt=(ivalue/2);icnt>=1;icnt--)
 {
-    int i=0;
-    
-    if(ivalue<0)
-    {
-  
+   if((ivalue%icnt)==0)
+     {
+      printf("%d\n",icnt);
     }
-    for(i=1;i<=ivalue/2;i++)
-    {  
-        if(ivalue%i==0)
-        {
-            printf("%d\n",i);
-        
-        }
-    }
-}
+  }
+ }
 
 int main()
 {
-    int ino=0;
-    printf("enter the number ");
-    scanf("%d",&ino);
-    DisplayFactor(ino);
+int ino=0;
+printf("enter the number =");
+scanf("%d",&ino);
+ Display(ino);
 
-
-    return  0;
+    return 0;
 }
