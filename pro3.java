@@ -1,62 +1,39 @@
-import java.util.*;
-class ArrayX
+import java.util.Scanner;
+class pattern
 {
-    public int Arr[];
-    public ArrayX(int isize)
+    public void Pattern(int iRow,int iCol)
     {
-        Arr=new int[isize];
-    }
-    public void Accept()
-    {
-        Scanner sobj=new Scanner(System.in);
-        int i=0;
-        System.out.println("Enter numbers");
-        for(i=0;i<Arr.length;i++)
+        int i=0,j=0;
+        char ch1='A';
+        char ch='A';
+        for(i=0,ch1='A';i<=iRow;i++,ch1++)
         {
-            Arr[i]=sobj.nextInt();
+            for(j=0,ch='A';j<=iCol;j++,ch++)
+            {
+                System.out.print(ch1);
+                System.out.print("\t");
+            }
+            System.out.println();
         }
     }
-    public void Display()
-    {
-        System.out.println("elements are:");
-        int i=0;
-        for(i=0;i<Arr.length;i++)
-        {
-            System.out.println(Arr[i]);
-        }
-    }
+   
 }
-class Marvellous extends ArrayX
-{
-    public Marvellous(int ino)
-    {
-        super(ino);
-    }
-    public int Last(int no)
-    {
-        int i=0,index=-1;
-        for(i=0;i<Arr.length;i++)
-        {
-            index=i;
-        }
-        return index;
-    }
-}
-class pro3
+class pro3 
 {
     public static void main(String arg[])
     {
         Scanner sobj=new Scanner(System.in);
-        int ilength=0,ino=0,iRet=0;
-        System.out.println("Enter length:");
-        ilength=sobj.nextInt();
+        int iRow=0,iCol=0;
+        System.out.println("Enter row number:");
+        iRow=sobj.nextInt();
 
-        Marvellous mobj=new Marvellous(ilength);
-        mobj.Accept();
-        mobj.Display();
-        System.out.println("Enter anothr number:");
-        ino=sobj.nextInt();
-        iRet=mobj.Last(ino);
-        System.out.println("index at:"+iRet);
+        System.out.println("Enter Cols number:");
+        iCol=sobj.nextInt();
+        pattern p=new pattern();
+         
+        p.Pattern(iRow,iCol);
+
+       
     }
+
 }

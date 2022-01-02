@@ -1,66 +1,33 @@
-import java.util.*;
-
-import javax.swing.plaf.synth.SynthStyle;
-class ArrayX
+import java.util.Scanner;
+class Pattern
 {
-    public int Arr[];
-    public ArrayX(int isize)
+    public void Pattern(int iRow,int iCol)
     {
-        Arr=new int[isize];
-    }
-    public void Accept()
-    {
-        Scanner sobj=new Scanner(System.in);
-        int i=0;
-        System.out.println("Enter numbers:");
-        for(i=0;i<Arr.length;i++)
+        int i=0,j=0;
+        for(i=iRow;i>0;i--)
         {
-            Arr[i]=sobj.nextInt();
-        }
-    }
-    public void Display()
-    {
-        System.out.println("Elements are:");
-        for(int i=0;i<Arr.length;i++)
-        {
-            System.out.println(Arr[i]);
-        }
-    }
-}
-class Marvellous extends ArrayX
-{
-    public Marvellous(int ino)
-    {
-        super(ino);
-    }
-    public void Show(int start,int end)
-    {
-        int i=0;
-        for(i=0;i<Arr.length;i++)
-        {
-            if(Arr[i]>start&&Arr[i]<end)
+            for(j=iCol;j>0;j--)
             {
-                System.out.println(Arr[i]);
-            } 
+                System.out.print(i);
+                
+                System.out.print("\t");
+            }
+            System.out.println();
         }
     }
 }
-class pro4
+class pro4 
 {
     public static void main(String arg[])
     {
         Scanner sobj=new Scanner(System.in);
-        int ilength=0,is=0,ie=0;
-        System.out.println("Enter length:");
-        ilength=sobj.nextInt();
-        Marvellous mobj=new Marvellous(ilength);
-        mobj.Accept();
-        mobj.Display();
-        System.out.println("enter start:");
-        is=sobj.nextInt();
-        System.out.println("enter start:");
-        ie=sobj.nextInt();
-        System.out.println("Result:");
-        mobj.Show(is, ie);
+        System.out.println("Enter Row number:");
+        int iRow=sobj.nextInt();
+
+        System.out.println("Enter col number:");
+        int iCol=sobj.nextInt();
+        Pattern p=new Pattern();
+        p.Pattern(iRow, iCol);
+
     }
 }

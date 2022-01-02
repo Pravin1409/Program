@@ -1,79 +1,45 @@
 import java.util.*;
-class ArrayX
+
+
+class Pattern
 {
-    public int Arr[];
-    public ArrayX(int isize)
+    public void Pattern(int irow,int icol)
     {
-        Arr=new int[isize];
-    }
-    public void Accept()
-    {
-        Scanner sobj=new Scanner(System.in);
-        System.out.println("Enter numbers:");
-        int i=0;
-        for(i=0;i<Arr.length;i++)
+        int i=0,j=0;
+        char ch='A';
+        char ch1='a';
+        for(i=0,ch='A',ch1='a';i<=irow;i++,ch++,ch1++)
         {
-            Arr[i]=sobj.nextInt();
+            for(j=0,ch='A',ch1='a';j<=icol;j++,ch++,ch1++)
+            {
+                if(i%2==0)
+                {
+                 System.out.print(ch);
+                }
+                else
+                {
+                    System.out.print(ch1);
+                }
+            }
+            System.out.println();
         }
-    }
-    public void Display()
-    {
-        System.out.println("Elements Are:");
-        int i=0;
-        for(i=0;i<Arr.length;i++)
-        {
-            System.out.println(Arr[i]);
-        }
-    }
-}
-class Marvellous extends ArrayX
-{
-public Marvellous(int ino)
-{
-    super(ino);
-}
-public boolean Check(int ino)
-{
-    int i=0;
-    for(i=0;i<Arr.length;i++)
-    {
-        if(Arr[i]==ino)
-        {
-            break;
-        }
+       
     } 
-    if(i==Arr.length)
-    {
-        return false;
-    }
-    else
-    { 
-        return true;
-    }
 }
-}
-class pro1
+class pro1 
 {
     public static void main(String arg[])
     {
         Scanner sobj=new Scanner(System.in);
-        int ilength=0,ino=0;
-        boolean bRet=false;
-        System.out.println("enter the length:");
-        ilength=sobj.nextInt(); 
-        Marvellous mobj=new Marvellous(ilength);
-        mobj.Accept();
-        mobj.Display();
-        System.out.println("Enter another number:");
-        ino=sobj.nextInt();
-        bRet=mobj.Check(ino);
-        if (bRet==true)
-        { 
-            System.out.println("present"); 
-        }
-        else
-        {
-            System.out.println("not present");
-        }
+        int iRow=0,iCol=0;
+        System.out.println("Enter row number:");
+        iRow=sobj.nextInt();
+
+        System.out.println("Enter Cols number:");
+        iCol=sobj.nextInt();
+        Pattern p=new Pattern();
+         
+        p.Pattern(iRow,iCol);
+
     }
 }
