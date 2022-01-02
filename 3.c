@@ -1,50 +1,31 @@
-/* Write a program which accept number from user and display all non factor.
-input:12
-output:5    7   8   9   10  11
-
-input: 13
-output: 2   3   4   5   6   7   8   9   10  11  12
-
-input:10
-output:3    4   6   7   8   9
-
-*/
+/*Write a program accept number from user and count frequency of 2 in it */
 
 #include<stdio.h>
- void NonFact(int ivalue)
- {   
-     /////////////////////////////////////////////////
-     if(ivalue<0)
+int CountTwo(int ino)
+{
+ int iDigit=0;
+ int icnt=0;
+ while (ino!=0)
+ {
+     iDigit=ino%10;
+     if (iDigit==0)
      {
-         ivalue=-ivalue;
+         icnt++;
      }
-     ///////////////////////////////////////////////
-     if(ivalue==0)
-     {
-         printf("You enter the number=");
-     }
-     ///////////////////////////////////////////////
-     
-///////////////////////////////////////////////////
-      int icnt=0;
-
-     for(icnt=1;icnt<=ivalue;icnt++)
-     {
-         if((ivalue%icnt)!=0)
-         {
-             printf("%d\n",icnt);
-         }
-     }
-//////////////////////////////////////////////////
+     ino=ino/10;
  }
 
+return icnt++;
+
+}
 int main()
 {
- int ino =0;
- printf("enter the number=");
- scanf("%d",&ino);
- printf("number are:\n");
-  NonFact(ino);
+    int ivalue=0;
+    int iRet=0;
+    printf("enter the number ");
+    scanf("%d",&ivalue);
 
-    return 0;
+    iRet=CountTwo(ivalue);
+    printf("The Frequency of2= %d",iRet);
+     return 0;
 }

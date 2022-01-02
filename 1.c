@@ -1,37 +1,32 @@
-/* write a program which accept number from user and display it multiplication of a factor
-
-input : 12
-output:144   (1*2*3*4*6)
-
-input
-
-time coplxcity  n/2
+/*
+write a program which accept number from user and display its digits in reverse order
 */
-
-
 #include<stdio.h>
-int MulFact(int ivalue)
+void Display(int ino)
 {
-    int icnt=0;
-    int imul=1;
-    for(icnt=1;icnt<=(ivalue/2);icnt++)
+    /////////////////////////////////////////
+    if (ino<0)
     {
-        if((ivalue%icnt)==0)
-        {
-            imul=imul*icnt;
-        }
+        ino=-ino;   // UPDATOR
     }
-    return imul;
-}
+    ////////////////////////////////////////
+    int iDigit=0;
+    int Rev=0;
+    while (ino!=0)
+    {
+        iDigit=ino%10;
+        printf("%d\n",iDigit);
+        // Rev=(Rev*10)+iDigit;
+        ino=ino/10;
+    } 
 
+}
 int main()
 {
- int ino=0;
- int iRet=0;
- printf("enter the number");
- scanf("%d",&ino);
- iRet=MulFact(ino);
- printf("%d",iRet);
- 
-    return 0;
+    int ivalue=0;
+    printf("Enter the number=");
+    scanf("%d",&ivalue);
+
+    Display(ivalue);
+     return 0;
 }

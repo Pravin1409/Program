@@ -1,30 +1,38 @@
 /*
-write  a program which accept number from user and return summation of its non factor
+Write the program accept number from user and count Frequency of 4 in it.
 */
 
 #include<stdio.h>
-int SumNonFact(int ivalue)
+int CountFour(int ino)
 {
-    int  icnt=0;
-    int sum=0;
-    for(icnt=1;icnt<=ivalue;icnt++)
+    if (ino<0)
     {
-        if ((ivalue%icnt)!= 0)
-        {
-            sum=sum+icnt;
-        }
+        ino=-ino;
     }
- return sum;
-}
+    
+    int iDigit=0;
+    int icnt=0;
+    while (ino>0)
+    {
+        iDigit=ino%10;
+        if (iDigit==4)
+        {
+            icnt++;
+        }
+         ino=ino/10;
 
+    }
+   return icnt;
+}
 int main()
 {
- int ino=0;
- int iRet=0;
- printf("enter the number ");
- scanf("%d",&ino);
- iRet=SumNonFact(ino);
- printf("%d",iRet);
+    int ivalue=0;
+    int iRet=0;
+    printf("enter the number=");
+    scanf("%d",&ivalue);
 
-    return 0;
+    iRet=CountFour(ivalue);
+    printf("Frequency of 4 is=%d",iRet);
+
+     return 0;
 }

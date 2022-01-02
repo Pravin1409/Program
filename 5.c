@@ -1,38 +1,37 @@
 /*
-Write a program which accept number from user and return difference between summation of all its factor and non factor
+Write a program which accept number from user and  count frequency of such digit is less than 6
 */
-
 #include<stdio.h>
-int SumNonFact(int ivalue)
+int Count(int ino)
 {
-    int  icnt=0;
-    int sum=0;
-    int isum=0;
-    int s=0;
-            for(icnt=1;icnt<=ivalue/2;icnt++)
-            {
-                if ((ivalue%icnt)== 0)
-                {
-                    sum=sum+icnt;
-                }
-            }
-            for(icnt=1;icnt<=ivalue;icnt++)
-            {
-                if ((ivalue%icnt)!= 0)
-                {
-                    isum=isum+icnt;
-                }
-                s=sum-isum;
+    if (ino<0)
+    {
+        ino=-ino;
     }
- return s;
+    
+    int iDigit=0;
+    int icnt=0;
+    while (ino>0)
+    {
+        iDigit=ino%10;
+        if (iDigit<6)
+        {
+            icnt++;
+        }
+        ino=ino/10;
+        
+    }
+    return icnt;
 }
 int main()
 {
- int ino=0;
- int iRet=0;
- printf("enter the number ");
- scanf("%d",&ino);
- iRet=SumNonFact(ino);
- printf("%d",iRet);
-    return 0;
+    int ivalue=0;
+    int iRet=0;
+
+    printf("enter the number=");
+    scanf("%d",&ivalue);
+    
+    iRet=Count(ivalue);
+    printf("Frequency of digit less than 6 is : %d",iRet);
+     return 0;
 }
