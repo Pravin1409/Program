@@ -1,14 +1,25 @@
 #include<stdio.h>
-void Display()
+int Count(char*Brr)
 {
     int i=0;
-    for(i=0;i<=127;i++)
+    while (*Brr!='\0')
     {
-        printf(" %c\t %d\t %x\t %o\t \n",i,i,i,i,i);
+        if ((*Brr>='A')&&(*Brr<='Z'))
+        {
+          i++;
+        }
+        Brr++;
     }
+    return i;
+    
 }
 int main()
 {
-    Display();
+    char Arr[50];
+    int iRet=0;
+    printf("Enter String:");
+    scanf("%[^'\n']s",Arr);
+    iRet=Count(Arr);
+    printf("Count are: %d",iRet);
     return 0;
 }

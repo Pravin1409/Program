@@ -1,20 +1,31 @@
 #include<stdio.h>
-void Display(char c)
-{    
-        if ((c>='A')&&(c<='Z'))
-        {
-            printf("%d\t %o\t%X\t\n",c,c,c);
-        }
-    
-        
+void Dis(char*str)
+{
+    char *end=str;
+    char temp;
+    while (*end!='\0')
+    {
+        end++;
+    }
+    end--;
+    while (str<end)
+    {
+        temp=*str;
+        *str=*end;
+        *end=temp;
+        str++;
+        end--;
+    }
     
 }
+
 int main()
 {
-    char ch='\0';
-    printf("Enter Char:");
-    scanf("%c",&ch);
+    char Arr[30];
+    printf("Enter string:");
+    scanf("%[^\n]s",Arr);
 
-    Display(ch);
+    Dis(Arr);
+    printf("string are:%s",Arr);
     return 0;
 }

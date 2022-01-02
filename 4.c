@@ -1,36 +1,35 @@
 #include<stdio.h>
 #include<stdbool.h>
-bool Check(char ch)
+bool CheckVowel(char *str)
 {
-    int i=0;
-    for(i=0;i<=127;i++)
+    while (*str!='\0')
     {
-    if ((ch>=33)&&(ch<=42))
-    {
+        if (*str=='a'||*str=='e'||*str=='i'||*str=='o'||*str=='u')
+     {
         return true;
+     }
+     else
+     {
+         return false;
+     }
+      str++;
     }
-    else
-    {
-        return false;
-    }
-    
-}
 }
 int main()
 {
-    char ch='\0';
+    char str[50];
     bool bRet=false;
-    printf("Enter character:");
-    scanf("%c",&ch);
-    bRet=Check(ch);
+    printf("Enter the String: ");
+    scanf("%[^\n]s",str);
+    bRet=CheckVowel(str);
     if (bRet==true)
     {
-     printf("it is symbol");
+        printf("Contain vowel");
     }
     else
     {
-        printf("It is not symbol");
+        printf("Not Contain");
     }
+    
     return 0;
-
 }
