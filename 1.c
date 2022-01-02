@@ -1,19 +1,16 @@
 #include<stdio.h>
-void Display(int no)
+void Display()
 {
-   static int i=1;
-    if(i<=no)
+    static int i=5;
+    if(i>=1)
     {
-        printf("*\t");
-        i++;
-        Display(no);
+        printf("%d\t*\t",i);
+        i--;
+        Display();
     }
 }
 int main()
 {
-    int no=0;
-    printf("Enter number:\n");
-    scanf("%d",&no);
-    Display(no);
+    Display();
     return 0;
 }

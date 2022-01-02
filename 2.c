@@ -1,19 +1,23 @@
 #include<stdio.h>
-void Display(int no)
+int Sum(int no)
 {
-   static int i=1;
-    if(i<=no)
+   static int iDigit=0,sum=0;
+    if(no!=0)
     {
-        printf("%d\t",i);
-        i++;
-        Display(no);
+        iDigit=no%10;
+        sum=sum+iDigit;
+        no=no/10;
+        Sum(no);
     }
+    return sum;
 }
 int main()
 {
-    int no=0;
-    printf("Enter number:\n");
+    int no=0,iRet=0;
+    printf("Enter number:");
     scanf("%d",&no);
-    Display(no);
+    iRet=Sum(no);
+    printf("Sum is:%d",iRet);
+
     return 0;
 }

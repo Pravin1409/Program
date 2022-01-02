@@ -1,19 +1,22 @@
 #include<stdio.h>
-void Display(int no)
+int Count(char*str)
 {
-   static int i=4;
-   if(i>=1)
-   {
-       printf("%d\t",i);
-       i--;
-       Display(no);
-   }
+   static int icnt=0;
+    if(*str!='\0')
+    {
+        icnt++;
+        str++;
+        Count(str);
+    }
+    return icnt;
 }
 int main()
 {
-    int no=0;
-    printf("Enter number:\n");
-    scanf("%d",&no);
-    Display(no);
+    char Arr[20];
+    int iRet=0;
+    printf("Enter String:\n");
+    scanf("%[^\n]s",Arr);
+    iRet=Count(Arr);
+    printf("Count are:%d",iRet);
     return 0;
 }

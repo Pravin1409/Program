@@ -1,17 +1,23 @@
 #include<stdio.h>
-void Display()
+
+int Fact(int no)
 {
-    
-     static i=1,ch='A';
-    if(i<=5)
+    static int fact=1,i=1;
+    if(i<=no)
     {
-        printf("%c\t",ch);
-        i++,ch++;
-        Display();
+        fact=fact*i;
+        i++;
+        Fact(no);
     }
+    return fact;
 }
 int main()
 {
-    Display();
+    int no=0,iRet=0;
+    printf("Enter number:");
+    scanf("%d",&no);
+
+    iRet=Fact(no);
+    printf("Factorial Are:%d",iRet);
     return 0;
 }
