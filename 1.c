@@ -1,22 +1,37 @@
 #include<stdio.h>
-void strcpyx(char *src,char *dest)
+void Display(char *str,char*dest)
 {
-    while (*src!='\0')
+    char*start=str;
+    char*end=dest;
+    char temp;
+    while (*end!='\0')
     {
-        *dest=*src;
-        src++;
-        dest++;
+        end++;
     }
-    dest;
+    end--;
+    while (start<end)
+    {
+        temp=*start;
+        *start=*end;
+        *end=temp;
+         start++;
+        end--;
+
+        *dest=temp;
+        dest--;
+        
+    }
+dest;
 }
 int main()
 {
     char Arr[30];
-    char brr[30];
-    printf("Enter string 1: \n");
-    scanf("%[^\n]s",Arr);
-    strcpyx(Arr,brr);
+    char Brr[30];
 
-    printf(" the copy string are:%s\n",brr);
+    printf("Enter srting:");
+    scanf("%[^'\n']s",Arr);
+    scanf("%[^\n]s",Brr);
+    Display(Arr,Brr);
+    printf("string are:%s",Brr);
     return 0;
 }

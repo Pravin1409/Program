@@ -1,29 +1,28 @@
 #include<stdio.h>
-void Display(char*arr,char *brr)
+void Display(char*src,char*dest)
 {
-    while (*arr!='\0')
+    while(*src!='\0')
     {
-        if (*arr>='a'&&*arr<='z')
+        *dest=*src;
+        if ((*dest>='A')&&(*dest<='Z'))
         {
-            *brr=*arr;
-             arr++;
+            *dest=*dest+32;
         }
-      
-        brr++;
+        src++;
+        dest++;
         
     }
-    brr;
-    
+    dest;
 }
 int main()
 {
     char Arr[30];
     char Brr[30];
-    printf("Enter the string:");
-    scanf("%[^\n]",Arr);
 
+    printf("Enter the the string:");
+    scanf("%[^\n]s",Arr);
+     printf("Before :%s\n",Arr);
     Display(Arr,Brr);
-
-    // printf("String:%s",Brr);
-    return 0;
+   printf("After:%s",Brr);
+   return 0;
 }

@@ -1,25 +1,28 @@
 #include<stdio.h>
-void StrcpyCap(char *src,char*dest)
+void Display(char*src,char*dest)
 {
-    while (*src!='\0')
+    while(*src!='\0')
     {
-        if ((*src>='A')&&(*src<='Z'))
+        *dest=*src;
+        if ((*src>='a')&&(*src<='z'))
         {
-            *dest=*src;
-            src++;
+            *dest=*dest-32;   
         }
+       
+         src++;
         dest++;
     }
     dest;
 }
 int main()
 {
-    char arr[30];
-    char brr[30];
-    printf("Enter source string:");
-    scanf("%[^\n]s",arr);
-    StrcpyCap(arr,brr);
+    char Arr[30];
+    char Brr[30];
+    printf("Enter String:");
+    scanf("%[^\n]s",Arr);
 
-    printf("Result :%s",brr);
+    printf("Before:%s\n",Arr);
+    Display(Arr,Brr);
+    printf("After:%s",Brr);
     return 0;
 }

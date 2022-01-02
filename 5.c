@@ -1,25 +1,32 @@
 #include<stdio.h>
-int CountSpace(char*str)
+void Display(char*Arr,char*Brr)
 {
-    int i=0;
-    while (*str!='\0')
+    while (*Arr!='\0')
     {
-        if (*str==' ')
+        *Brr=*Arr;
+        if ((*Brr>='A')&&(*Brr<='Z'))
         {
-            i++;
+            *Brr=*Brr+32;
         }
-        str++;
+        else if ((*Brr>='a')&&(*Brr<='z'))
+        {
+            *Brr=*Brr-32;
+        }
+        
+        Arr++;
+        Brr++;
     }
-    return i;
+    Brr;
 }
 int main()
 {
-    char str[30];
-    int iRet=0;
-    printf("Enter char:");
-    scanf("%[^\n]s",str);
-    iRet=CountSpace(str);
-    printf("Count is:%d",iRet);
+    char Arr[30];
+    char Brr[30];
 
+    printf("Enter String:");
+    scanf("%[^\n]s",Arr);
+
+    Display(Arr,Brr);
+    printf("String are:%s",Brr);
     return 0;
 }
