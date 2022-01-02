@@ -1,59 +1,49 @@
 #include<stdio.h>
 #include<stdlib.h>
-int LastOccurance(int ptr[],int iSize,int ino)
+
+int Difference(int ptr[],int iSize)
 {
     int i=0;
-    int index=-1;
-    for ( i = iSize; i > 0; i--)
+    int iMax=ptr[0];
+    int iMin=ptr[0];
+    for (i=0;i<iSize;i++)
     {
-        if (ptr[i]==ino)
+        if(ptr[i]>iMax)
         {
-            break;
+            iMax=ptr[i];
+        }
+        if (ptr[i]<iMin)
+        {
+            iMin=ptr[i];
         }
         
     }
-    if (i==iSize)
-    {
-        return -1;
-    }
-    else
-    {
-        return i;
-    }
+    return iMax-iMin;
 }
 int main()
 {
     int ilength=0;
-    int ivalue=0;
-    int iRet=0;
     int i=0;
-    int*p=NULL;
+    int*ptr=NULL;
+    int iRet=0;
 
-    printf("Enter Size:\n");
+    printf("Enter the length:");
     scanf("%d",&ilength);
 
-    p=(int*)malloc(sizeof(int)*ilength);
-     
-     printf("Enter %dnumber:\n",ilength);
-     for ( i = 0; i <ilength; i++)
-     {
-         printf("Enter %d: ",i+1);
-         scanf("%d",&p[i]);
-     }
-     printf("Enter Another number:");
-     scanf("%d",&ivalue);
+    ptr=(int*)malloc(sizeof(int)*ilength);
 
-     iRet=LastOccurance(p,ilength,ivalue);
-     if (iRet==-1)
-     {
-         printf("There is a no such number.");
-     }
-     else
-     {
-         printf("Present at index:%d",iRet);
-     }
-     free(p);
-     return 0;
-     
-     
+    printf("Enter number: ");
+
+    for(i=0;i<ilength;i++)
+    {
+        printf("Enter %d: ",i+1);
+        scanf("%d",&ptr[i]);
+    }
+
+    iRet=Difference(ptr,ilength);
+
+    printf("Difference is %d",iRet);
+    free(ptr);
+    return 0;
+
 }

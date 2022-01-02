@@ -1,57 +1,37 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<stdbool.h>
-bool Check(int ptr[],int iSize,int ino)
+int Largest(int ptr[],int iSize)
 {
     int i=0;
+    int iMax=ptr[0];
     for(i=0;i<iSize;i++)
     {
-        if (ptr[i]==ino)
+        if (ptr[i]>iMax)
         {
-             break;
+            iMax=ptr[i];
         }
     }
-    if (i==iSize)
-    {
-        return false;
-    }
-    else
-    {
-        return true;
-    }
-    
+    return iMax;
 }
 int main()
 {
     int ilength=0;
-    int ino=0;
     int i=0;
-    int*ptr=NULL;
-    bool bRet=false;
-
-    printf("Enter the length:");
+    int *ptr=NULL;
+    int iRet=0;
+    printf("Enter length:");
     scanf("%d",&ilength);
-
-    printf("Enter Another number:");
-    scanf("%d",&ino);
 
     ptr=(int*)malloc(sizeof(int)*ilength);
 
-    printf("Enter the size:");
+    printf("Enter number: ");
     for(i=0;i<ilength;i++)
     {
-        printf("Enter%d :\n",i+1);
+        printf("Ente %d: ",i+1);
         scanf("%d",&ptr[i]);
     }
-    bRet=Check(ptr,ilength,ino);
-    if (bRet==true)
-    {
-        printf("Number is present");
-    }
-    else
-    {
-        printf("Number is not present");
-    }
+    iRet=Largest(ptr,ilength);
+    printf("Largest number is %d:",iRet);
     free(ptr);
     return 0;
 }

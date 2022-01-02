@@ -1,56 +1,42 @@
 #include<stdio.h>
 #include<stdlib.h>
-int Firstindex(int ptr[],int iSizel,int ino)
+int Smaller(int ptr[],int ino)
 {
     int i=0;
-    for ( i = 0; i < iSizel; i++)
+    int iMin=ptr[0];
+    for(i=0;i<ino;i++)
     {
-        if (ptr[i]==ino)
+        if(ptr[i]<iMin)
         {
-            break;
+            iMin=ptr[i];
         }
-        
-    }
-    if (i==iSizel)
-    {
-        return -1;
-    }
-    else
-    {
-        return i;
-    }
-    
 
+    }
+    return iMin;
 }
+
 int main()
 {
     int ilength=0;
-    int ivalue=0;
-    int*p=NULL;
-    int i=0;
+    int i=0; // for loop
+    int *ptr=NULL;
     int iRet=0;
-    printf("Enter Length:");
+
+    printf("Enter length:");
     scanf("%d",&ilength);
 
-    p=(int*)malloc(sizeof(int)*ilength);
-    printf("Enter number:%d\n",ilength);
-    for ( i = 0; i <ilength; i++)
-    {
-        printf("Enter element:%d\n",i+1);
-        scanf("%d",&p[i]);
-    }
-    printf("Enter another number:");
-    scanf("%d",&ivalue);
+    ptr=(int*)malloc(sizeof(int)*ilength);
 
-    iRet=Firstindex(p,ilength,ivalue);
-    if (iRet==-1)
+    printf("Enter number:");
+    for(i=0;i<ilength;i++)
     {
-        printf("No such a number");
+        printf("Enter %d:",i+1);
+        scanf("%d",&ptr[i]);
     }
-    else
-    {
-        printf("Number present At index:%d",iRet);
-    }
-    free(p);
+
+    iRet=Smaller(ptr,ilength);
+    printf(" Smaller%d",iRet);
+    free(ptr);
+
     return 0;
 }
