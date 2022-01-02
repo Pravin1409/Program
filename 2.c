@@ -1,24 +1,24 @@
 #include<stdio.h>
-void struprx(char* str)
+void Display(char*str,char*dest,int icnt)
 {
-    while (*str!='\0')
+    while ((*str!='\0')&&(icnt!=0))
     {
-        if ((*str>='a')&&(*str<='z'))
-        {
-            *str=*str-32;
-        }
+        *dest=*str;
         str++;
-
+        dest++;
+        icnt--;
     }
-    
+    dest;
 }
 int main()
 {
-    char arr[30];
-    printf("Enter string:");
-    scanf("%[^\n]s",arr);
-    struprx(arr);
-
-    printf("Modified strin are:%s",arr);
+    char Arr[50];
+    char Brr[30];
+    printf("Enter string: ");
+    scanf("%[^\'n']s",Arr);
+    Display(Arr,Brr,2);
+    printf("string are:%s\n",Brr);
     return 0;
 }
+
+

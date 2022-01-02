@@ -1,28 +1,22 @@
-// convert lower case
 #include<stdio.h>
-void strlwrx(char *str)
+void strcpyx(char *src,char *dest)
 {
-    int i=0;
-    while (*str!='\0')
+    while (*src!='\0')
     {
-        if ((*str>='A')&&(*str<='Z'))
-        {
-            *str=*str+32;
-        }
-        str++;
+        *dest=*src;
+        src++;
+        dest++;
     }
-    
+    dest;
 }
 int main()
 {
-    char arr[30];
- 
-    printf("Enter string:");
-    scanf("%[^\n]s",arr);
+    char Arr[30];
+    char brr[30];
+    printf("Enter string 1: \n");
+    scanf("%[^\n]s",Arr);
+    strcpyx(Arr,brr);
 
-    strlwrx(arr);
-
-    printf("modified string aree:%s",arr);
-
+    printf(" the copy string are:%s\n",brr);
     return 0;
 }
