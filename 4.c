@@ -1,12 +1,17 @@
 #include<stdio.h>
-void Display(int irow,int icol)
+void Display(int iRow,int iCol)
 {
     int i=0,j=0;
-    for(i=irow;i>=1;i--)
+    for(i=1;i<=iRow;i++)
     {
-        for(j=icol;j>=1;j--)
+        for(j=1;j<=iCol;j++)
         {
-            printf("%d\t",i);
+            if (i<=j)
+            {
+                printf("%d\t",j);
+            }
+           
+            
         }
         printf("\n");
     }
@@ -15,11 +20,12 @@ int main()
 {
     int ivalue1=0,ivalue2=0;
 
-    printf("Enter row:\n");
+    printf("Enter row:");
     scanf("%d",&ivalue1);
 
-    printf("Enter col:\n");
+    printf("Enter Col");
     scanf("%d",&ivalue2);
+
 
     Display(ivalue1,ivalue2);
 
