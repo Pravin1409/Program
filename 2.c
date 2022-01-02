@@ -1,25 +1,24 @@
 #include<stdio.h>
-int CountSmall(char *str)
+void struprx(char* str)
 {
-    int icnt=0;
- while (*str!='\0')
- {
-     if ((*str>='a')&&(*str<='z'))
-     {
-         icnt++;
-     }
-     str++;
-     
- }
- return icnt;
+    while (*str!='\0')
+    {
+        if ((*str>='a')&&(*str<='z'))
+        {
+            *str=*str-32;
+        }
+        str++;
+
+    }
+    
 }
 int main()
 {
-    char Str[50];
-    int iRet=0;
-    printf("Enter String: ");
-    scanf("%[^\n]s",Str);
-    iRet=CountSmall(Str);
-    printf("Count is: %d",iRet);
+    char arr[30];
+    printf("Enter string:");
+    scanf("%[^\n]s",arr);
+    struprx(arr);
+
+    printf("Modified strin are:%s",arr);
     return 0;
 }

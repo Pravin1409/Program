@@ -1,35 +1,23 @@
 #include<stdio.h>
-#include<stdbool.h>
-bool CheckVowel(char *str)
+void Display(char str[])
 {
-    while (*str!='\0')
+    int i=0;
+    while (str[i]!='\0')
     {
-        if (*str=='a'||*str=='e'||*str=='i'||*str=='o'||*str=='u')
-     {
-        return true;
-     }
-     else
-     {
-         return false;
-     }
-      str++;
+        if ((str[i]>='0')&&(str[i]<='9'))
+        {
+            printf("%c",str[i]);
+        }
+        i++;
     }
+    
 }
 int main()
 {
-    char str[50];
-    bool bRet=false;
-    printf("Enter the String: ");
-    scanf("%[^\n]s",str);
-    bRet=CheckVowel(str);
-    if (bRet==true)
-    {
-        printf("Contain vowel");
-    }
-    else
-    {
-        printf("Not Contain");
-    }
-    
+    char Arr[30];
+    printf("Enter string:");
+    scanf("%[^\n]s",Arr);
+    Display(Arr);
+
     return 0;
 }

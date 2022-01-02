@@ -1,31 +1,25 @@
 #include<stdio.h>
-void Dis(char*str)
+int CountSpace(char*str)
 {
-    char *end=str;
-    char temp;
-    while (*end!='\0')
+    int i=0;
+    while (*str!='\0')
     {
-        end++;
-    }
-    end--;
-    while (str<end)
-    {
-        temp=*str;
-        *str=*end;
-        *end=temp;
+        if (*str==' ')
+        {
+            i++;
+        }
         str++;
-        end--;
     }
-    
+    return i;
 }
-
 int main()
 {
-    char Arr[30];
-    printf("Enter string:");
-    scanf("%[^\n]s",Arr);
+    char str[30];
+    int iRet=0;
+    printf("Enter char:");
+    scanf("%[^\n]s",str);
+    iRet=CountSpace(str);
+    printf("Count is:%d",iRet);
 
-    Dis(Arr);
-    printf("string are:%s",Arr);
     return 0;
 }

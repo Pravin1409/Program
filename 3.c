@@ -1,34 +1,29 @@
 #include<stdio.h>
-int Difference(char *Str)
+void Display(char str[])
 {
-    int icnt=0;
-    int pcnt=0;
-
-    while (*Str!='\0')
+    int i=0;
+    while (str[i]!='\0')
     {
-        if ((*Str>='A')&&(*Str<='Z'))
+        if ((str[i]>='A')&&(str[i]<='Z'))
         {
-           icnt++;
+            str[i]=str[i]+32;
         }
-        if ((*Str>='a')&&(*Str<='z'))
-        {
-            pcnt++;
-        }
-        Str++;
-        
+         else if ((str[i]>='a')&&(str[i]<='z'))
+         {
+             str[i]=str[i]-32;
+         }
+         
+        i++;
     }
-    return pcnt-icnt;
     
 }
 int main()
 {
-    char str[50];
-    int iRet=0;
-    printf("Enter the string: ");
-    scanf("%[^\n]s",str);
+    char Arr[30];
+    printf("Enter string: ");
+    scanf("%[^\n]s",Arr);
 
-    iRet=Difference(str);
-    printf("Differnce is:%d",iRet);
-
+    Display(Arr);
+    printf("String are:%s",Arr);
     return 0;
 }
