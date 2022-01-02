@@ -1,30 +1,56 @@
+/*
+Accept N number from user and return difference between summation of even element and sum of 
+odd element 
+*/
 #include<stdio.h>
-void Display(int iRow,int iCol)
+#include<stdlib.h>
+int Difference(int p[],int iSize)
 {
-    int i=0,j=0;
-    for(i=1;i<=iRow;i++)
+    int icnt=0,isum=0,isum1=0,diff=0;
+    for(icnt=0;icnt<iSize;icnt++)
     {
-        for(j=1;j<=iCol;j++)
+        if (icnt%2!=0)
         {
-            if (i>=j)
-            {
-                printf("*\t");
-            }
-            
+            isum=isum+p[icnt];
         }
-        printf("\n");
     }
+    
+     for(icnt=0;icnt<iSize;icnt++)
+    {
+        if (icnt%2==0)
+        {
+            isum1=isum1+p[icnt];
+        }
+        diff=isum-isum1;
+    }
+    return diff;
+    
 }
+
 int main()
 {
-    int ivalue1=0, ivalue2=0;
+    int isize=0;
+    int icnt=0,iRet=0;
+    int*p=NULL;
 
-    printf("Enter Row:");
-    scanf("%d",&ivalue1);
+    printf("Enter number of element:\n");
+    scanf("%d",&isize);
 
-    printf("Enter col:");
-    scanf("%d",&ivalue2);
+    p=(int*)malloc(sizeof(int)*isize);
+    if(p==NULL)
+    {
+        printf("unable to allocate memory");
+        return -1;
+    }
+    printf("Enter %d element:\n",isize);
 
-    Display(ivalue1,ivalue2);
+    for(icnt=0;icnt<isize;icnt++)
+    {
+        scanf("%d",&p[icnt]);
+    }
+
+    iRet=Difference(p,isize);
+    printf("Result %d",iRet);
+    free(p);
      return 0;
 }

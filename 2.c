@@ -1,31 +1,42 @@
 #include<stdio.h>
-void Display(int iRow,int iCol)
+#include<stdlib.h>
+void Display(int p[],int iSize)
 {
-    int i=0,j=0;
-    for(i=0;i<=iRow;i++)
+    int icnt=0;
+    for(icnt=0;icnt<iSize;icnt++)
     {
-        for(j=0;j<=iCol;j++)
+        if (p[icnt]%5==0)
         {
-            if (i<=j)
-            {
-                printf("*\t");
-            }
-            
+            printf("%d\t",p[icnt]);
         }
-        printf("\n");
+        
     }
 }
 int main()
 {
-    int ivalue1=0,ivalue2=0;
+    int isize=0, icnt=0,iRet=0;
+    int*p=NULL;
 
-    printf("Enter Row:");
-    scanf("%d",&ivalue1);
+    printf("Enter number of element:\n");
+    scanf("%d",&isize);
 
-    printf("Enter Col");
-    scanf("%d",&ivalue2);
+    p=(int*)malloc(sizeof(int)*isize);
 
-    Display(ivalue1,ivalue2);
+    if (p==NULL)
+    {
+        printf("unable to allocate the memory:\n");
+    }
+    
 
+    printf("enter %d element\n",isize);
+    for(icnt=0;icnt<isize;icnt++)
+    {
+        printf("Enter element:%d\n",icnt+1);
+        scanf("%d",&p[icnt]);
+
+    }
+
+    Display(p,isize);
+    free(p);
      return 0;
 }
