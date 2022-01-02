@@ -1,38 +1,26 @@
 /*
-write a program accept number from user and return the count of even Digit.
+Write a program which accept radius of circle from user and calculate its area.
+consider value of PI as 3.14 (Area=Radius*Radius)
 */
+
 #include<stdio.h>
- int CountEven(int ino)
- {
-    ///////////////////////////////////////////////////
-    if (ino<=0)
-    {
-     ino=-ino;        // UPDATOR
-    }
-    ///////////////////////////////////////////////////
-    int iDigit=0;
-    int icnt=0;
+double AreaCircle(int Radius)
+{
+    float Area=0;
 
-    while (ino>0)
-  {  
-    iDigit=ino%10;
-    if (iDigit%2==0)
-     {
-        icnt++;
-     }
-    ino=ino/10;
-  }
-return icnt;
- }
-
+    Area= 3.14*Radius*Radius;
+    return Area;
+}
 int main()
 {
-    int ivalue=0;
-    int iRet=0;
-    printf("enter the numbr=");
-    scanf(" %d",&ivalue);
+    float fvalue=0;
+    double dRet=0;
 
-    iRet=CountEven(ivalue);
-    printf(" The even count are:%d",iRet);
-     return 0;
+    printf("Enter Radius of circle");
+    scanf("%f",&fvalue);
+
+    dRet=AreaCircle(fvalue);
+    printf("Area=%f",dRet);
+
+    return 0;
 }

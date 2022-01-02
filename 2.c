@@ -1,37 +1,32 @@
 /*
-Write a program accept number from user and count of odd Digit.
+Write a program which accept width & height of rectangle from user and calculate its area. 
 */
-
 #include<stdio.h>
-int CountOdd(int ino)
-{     /////////////////////////////////////////
-      if (ino<0)
-     {
-      ino=-ino; // UPDATOR
-     }
-     //////////////////////////////////////////
-      int iDigit=0;
-      int icnt=0;
-
-  while (ino>0)
-  {
-      iDigit=ino%10;
-      if (iDigit%2!=0)
+double RectangelArea(float width,float height)
+{
+    float Area=0;
+int icnt=0;
+    for(icnt=1;icnt<=height;icnt++)
     {
-        icnt++;
+        Area=width*height;
     }
-    ino=ino/10;
-  }
-   return icnt;
+    
+    return Area;
 }
 int main()
-{
-    int ivalue=0;
-    int iRet=0;
-    printf("enter the number:\n");
-    scanf("%d",&ivalue);
+{ 
+    float ivalue1=0.0;
+    float ivalue2=0.0;
+    double dRet=0;
 
-    iRet= CountOdd(ivalue);
-    printf("the count of odd nunber=%d",iRet);
-     return 0;
+    printf("Enter width:");
+    scanf("%f",&ivalue1);
+
+    printf("Enter height:");
+    scanf("%f",&ivalue2);
+
+    dRet=RectangelArea(ivalue1,ivalue2);
+    printf("Area=%f",dRet);
+
+    return 0;
 }

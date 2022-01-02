@@ -1,33 +1,32 @@
 /*
-write a program which accept number from user and return multiplication of all digits.
+write a program which accept tempreture in Fahrenheit and convert it into celsius.
 */
+
 #include<stdio.h>
-int MulDigit(int ino)
-{   //////////////////////////////////////////////
-    if (ino<0)
+double FhtoCelsius(float no)
+{
+    int icnt=0;
+    // float celsius=(no-32);
+    float celsious=0;
+    for(icnt=0;icnt<=no;icnt++)
     {
-        ino=-ino;   // UPDATOR
+        celsious=(icnt-32)*0.555;
     }
-    /////////////////////////////////////////////
     
-     int iDigit=0;
-     int mul=1;
-     while (ino>0)
-     {
-         iDigit=ino%10;
-         mul=mul*iDigit;
-         ino=ino/10;
-     }
-     return mul;
+    return celsious;
+
+
 }
 int main()
 {
-    int ivalue=0;
-    int iRet=0;
-    printf("Enter the number:\n");
-    scanf("%d",&ivalue);
+    float value=0;
+    double dRet=0;
 
-    iRet=MulDigit(ivalue);
-    printf("The multiplecation are: %d",iRet);
-     return 0;
+    printf("Enter temp in Fh:");
+    scanf("%f",&value);
+
+    dRet=FhtoCelsius(value);
+    printf("%f celsius",dRet);
+
+    return 0;
 }
