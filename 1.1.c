@@ -7,12 +7,14 @@ Write a program which accept one number from user and print that number of even 
 #include<stdio.h>
 void printEven(int ivalue)
 {
- int icnt=0;
-  for (icnt = 1; icnt <=ivalue*2; icnt++)
+ int i=0;
+ int sum=0;
+ int num=2;
+  for (i = 1; i <=ivalue; i++)
   {
-    if (icnt%2==0)
+    if (sum=num*i)
     {
-       printf("%d\n",icnt);
+       printf(" %d\n",sum);
     } 
   }
 }

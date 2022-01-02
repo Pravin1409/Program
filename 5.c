@@ -1,36 +1,39 @@
 #include<stdio.h>
+typedef int BOOL;
 #define TRUE 1
 #define FALSE 0
-typedef int BOOL;
-
-BOOL Check(int ino)
+BOOL ChkVowel(char cd)
 {
- if((ino%2)==0)
+ if((cd=='a')||(cd=='e')||(cd=='i')||(cd=='o')||(cd=='u'))
  {
      return TRUE;
-
  }
  else
  {
      return FALSE;
  }
+
+
 }
+
+
+
 int main()
 {
-    int ivalue=0;
-    BOOL bRet=FALSE;
-    printf("enter the number =");
-    scanf("%d",&ivalue);
-    bRet=Check(ivalue);
-    if(bRet==0)
-    {
-        printf("the number is even ");
-    }
-    else
-    {
+  char cValue='\0';
+  BOOL bRet=FALSE;
+  printf("enter the character\n");
+  scanf("%c",&cValue);
 
-        printf("the number is odd");
-    }
+  bRet=ChkVowel(cValue);
+  if(bRet==TRUE)
+  {
+      printf("It is vowel");
+  }
+  else
+  {
+      printf("it is not vowel");
+  }
 
     return 0;
 }
