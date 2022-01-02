@@ -1,8 +1,11 @@
 #include<stdio.h>
 #include<stdbool.h>
-bool CheckSmall(char c)
+bool Check(char ch)
 {
-    if ((c>='a')&&(c<='z'))
+    int i=0;
+    for(i=0;i<=127;i++)
+    {
+    if ((ch>=33)&&(ch<=42))
     {
         return true;
     }
@@ -12,21 +15,22 @@ bool CheckSmall(char c)
     }
     
 }
-
+}
 int main()
 {
     char ch='\0';
-    bool bret=false;
-    printf("Enter character: ");
+    bool bRet=false;
+    printf("Enter character:");
     scanf("%c",&ch);
-    bret=CheckSmall(ch);
-    if (bret==true)
+    bRet=Check(ch);
+    if (bRet==true)
     {
-        printf("It is small");
+     printf("it is symbol");
     }
     else
     {
-        printf("it not small");
+        printf("It is not symbol");
     }
-    
+    return 0;
+
 }

@@ -1,31 +1,29 @@
 #include<stdio.h>
-#include<stdbool.h>
-bool Check(char c)
+void Display(char c)
 {
-    if ((c>='0')&&(c<='9'))
+    for (int i = c; i <='Z'; i++)
     {
-        return true;
+        if ((c>='A')&&(c<='Z'))
+        {
+            printf("%c\t",i);
+        }
+        
     }
-    else
+    for (int i = c; i >= 'a'; i--)
     {
-        return false;
+        if ((c>='a')&&(c<='z'))
+        {
+            printf("%c\t",i);
+        }
+        
     }
+    
 }
 int main()
 {
-    char ch='\0';
-     bool bRet=false;
-     printf("Enter char");
-     scanf("%c",&ch);
-     bRet=Check(ch);
-     if (bRet==true)
-     {
-         printf("it is digit");
-     }
-     else
-     {
-         printf("it is not digit");
-     }
-     
+    char ch;
+    printf("Enter char:");
+    scanf("%c",&ch);
+    Display(ch);
     return 0;
 }
