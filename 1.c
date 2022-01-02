@@ -1,22 +1,19 @@
 #include<stdio.h>
-void Disply(int no)
+void Display(int no)
 {
    static int i=1;
-   
-   if(i<=no)
-   {
-       printf("*\t");
-       i++;
-       Disply(no);
-   }
+    if(i<=no)
+    {
+        printf("*\t");
+        i++;
+        Display(no);
+    }
 }
-
 int main()
-
 {
     int no=0;
-    printf("Enter number");
+    printf("Enter number:\n");
     scanf("%d",&no);
-    Disply(no);
+    Display(no);
     return 0;
 }
