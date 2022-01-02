@@ -1,42 +1,57 @@
 #include<stdio.h>
 #include<stdlib.h>
-int CountEven(int p[],int iSize)
+#include<stdbool.h>
+bool Check(int ptr[],int iSize,int ino)
 {
-    int icnt=0,i=0;
-    for(icnt=0;icnt<iSize;icnt++)
+    int i=0;
+    for(i=0;i<iSize;i++)
     {
-        if ((p[icnt]%2)==0)
+        if (ptr[i]==ino)
         {
-        
-            i++;
+             break;
         }
-  
     }
-          return i;
+    if (i==iSize)
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+    
 }
 int main()
 {
-    int icnt=0,iRet=0;
-    int size=0;
-    int*p=NULL;
+    int ilength=0;
+    int ino=0;
+    int i=0;
+    int*ptr=NULL;
+    bool bRet=false;
 
-    printf("Enter the size:\n");
-    scanf("%d",&size);
+    printf("Enter the length:");
+    scanf("%d",&ilength);
 
-    p=(int*)malloc(sizeof(int)*size);
-    if(p==NULL)
+    printf("Enter Another number:");
+    scanf("%d",&ino);
+
+    ptr=(int*)malloc(sizeof(int)*ilength);
+
+    printf("Enter the size:");
+    for(i=0;i<ilength;i++)
     {
-        printf("unable");
+        printf("Enter%d :\n",i+1);
+        scanf("%d",&ptr[i]);
     }
-
-    printf("Enter %d size\n",size);
-    for(icnt=0;icnt<size;icnt++)
+    bRet=Check(ptr,ilength,ino);
+    if (bRet==true)
     {
-        scanf("%d",&p[icnt]);
+        printf("Number is present");
     }
-    iRet=CountEven(p,size);
-    printf("Result: %d",iRet);
-
-    free(p);
-     return 0;
+    else
+    {
+        printf("Number is not present");
+    }
+    free(ptr);
+    return 0;
 }

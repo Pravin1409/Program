@@ -1,57 +1,59 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<stdbool.h>
-bool Check(int p[],int isize)
+int LastOccurance(int ptr[],int iSize,int ino)
 {
-    int icnt=0;
     int i=0;
-    for(icnt=0;icnt<isize;icnt++)
+    int index=-1;
+    for ( i = iSize; i > 0; i--)
     {
-        if (p[icnt]==11)
+        if (ptr[i]==ino)
         {
             break;
         }
+        
     }
-    if(i==isize)
+    if (i==iSize)
     {
-        return false;
+        return -1;
     }
     else
     {
-        return true;
+        return i;
     }
 }
 int main()
 {
-    int ino=0;
-    int icnt=0;
-    bool bRet=false;
+    int ilength=0;
+    int ivalue=0;
+    int iRet=0;
+    int i=0;
     int*p=NULL;
 
-    printf("Enter number:\n");
-    scanf("%d",&ino);
+    printf("Enter Size:\n");
+    scanf("%d",&ilength);
 
-    p=(int*)malloc(sizeof(int)*ino);
+    p=(int*)malloc(sizeof(int)*ilength);
+     
+     printf("Enter %dnumber:\n",ilength);
+     for ( i = 0; i <ilength; i++)
+     {
+         printf("Enter %d: ",i+1);
+         scanf("%d",&p[i]);
+     }
+     printf("Enter Another number:");
+     scanf("%d",&ivalue);
 
-    printf("enter %d element",ino);
-    for(icnt=0;icnt<ino;icnt++)
-    {
-        scanf("%d",&p[icnt]);
-    }
-
-    bRet=Check(p,ino);
-    if (bRet==true)
-    {
-        printf("11 contain");
-    }
-    else
-    {
-        printf("11 not contain");
-    }
-
-    free(p);
-    
-
-    
+     iRet=LastOccurance(p,ilength,ivalue);
+     if (iRet==-1)
+     {
+         printf("There is a no such number.");
+     }
+     else
+     {
+         printf("Present at index:%d",iRet);
+     }
+     free(p);
      return 0;
+     
+     
 }

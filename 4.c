@@ -1,44 +1,46 @@
 #include<stdio.h>
 #include<stdlib.h>
-
- int Check(int p[],int isize)
+void Range(int ptr[],int iSize,int iStart,int iEnd)
 {
-    int icnt=0;
-    for(icnt=0;icnt<isize;icnt++)
+    int i=0;
+    for(i=0;i<iSize;i++)
     {
-        if (p[icnt]==11)
+        if((ptr[i]>iStart)&&(ptr[i]<iEnd))
         {
-            icnt++;
+            printf("%d\t",ptr[i]);
         }
-       
-       
     }
-     return icnt;
 }
 int main()
 {
-    int ino=0;
-    int icnt=0;
-    int iRet=0;
-    int*p=NULL;
+    int ilength=0; //length
+    int*ptr=NULL;  //array ptr
+    int i=0;    //for loop
+    int value1=0;  // Start  range
+    int value2=0;
+     int   iRet=0;  // End range
 
-    printf("Enter number:\n");
-    scanf("%d",&ino);
+    printf("Enter the length:");
+    scanf("%d",&ilength);
 
-    p=(int*)malloc(sizeof(int)*ino);
+    printf("Enter Start:");
+    scanf("%d",&value1);
 
-    printf("enter %d element",ino);
-    for(icnt=0;icnt<ino;icnt++)
+     printf("Enter end:");
+    scanf("%d",&value2);
+
+
+    ptr=(int*)malloc(sizeof(int)*ilength);
+
+    printf("Enter the number: \n");
+    for(i=0;i<ilength;i++)
     {
-        scanf("%d",&p[icnt]);
+        printf("Enter %d :\n",i+1);
+        scanf("%d",&ptr[i]);
     }
 
-    iRet=Check(p,ino);
-    printf("result:%d",iRet);
+       Range(ptr,ilength,value1,value2);
+    free(ptr);
 
-    free(p);
-    
-
-    
-     return 0;
+    return 0;
 }

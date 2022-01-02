@@ -1,49 +1,56 @@
 #include<stdio.h>
 #include<stdlib.h>
-int CountEven(int p[],int iSize)
+int Firstindex(int ptr[],int iSizel,int ino)
 {
-    int icnt=0;
-    int i=0,j=0,diff=0;
-    for(icnt=0;icnt<iSize/2;icnt++)
+    int i=0;
+    for ( i = 0; i < iSizel; i++)
     {
-        if (p[icnt]%2!=0)
+        if (ptr[i]==ino)
         {
-        
-            i=icnt++;
+            break;
         }
-         if (p[icnt]%2==0)
-        {
         
-            j=icnt++;
-        }
-  
-        diff=j-i;
     }
-          return diff;
+    if (i==iSizel)
+    {
+        return -1;
+    }
+    else
+    {
+        return i;
+    }
+    
+
 }
 int main()
 {
-    int icnt=0,iRet=0;
-    int size=0;
+    int ilength=0;
+    int ivalue=0;
     int*p=NULL;
+    int i=0;
+    int iRet=0;
+    printf("Enter Length:");
+    scanf("%d",&ilength);
 
-    printf("Enter the size:\n");
-    scanf("%d",&size);
-
-    p=(int*)malloc(sizeof(int)*size);
-    if(p==NULL)
+    p=(int*)malloc(sizeof(int)*ilength);
+    printf("Enter number:%d\n",ilength);
+    for ( i = 0; i <ilength; i++)
     {
-        printf("unable");
+        printf("Enter element:%d\n",i+1);
+        scanf("%d",&p[i]);
     }
+    printf("Enter another number:");
+    scanf("%d",&ivalue);
 
-    printf("Enter %d size\n",size);
-    for(icnt=0;icnt<size;icnt++)
+    iRet=Firstindex(p,ilength,ivalue);
+    if (iRet==-1)
     {
-        scanf("%d",&p[icnt]);
+        printf("No such a number");
     }
-    iRet=CountEven(p,size);
-    printf("Result: %d",iRet);
-
+    else
+    {
+        printf("Number present At index:%d",iRet);
+    }
     free(p);
-     return 0;
+    return 0;
 }
