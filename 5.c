@@ -1,37 +1,47 @@
 /*
-Write a program which accept number from user and  count frequency of such digit is less than 6
+Write a c program which accept number from user and and return difference between summation of even digit and odd digit
 */
 #include<stdio.h>
-int Count(int ino)
+int CountDiff(int ino)
 {
-    if (ino<0)
-    {
-        ino=-ino;
-    }
-    
     int iDigit=0;
-    int icnt=0;
+    int isum=0;
+    int sum=0;
+    int diff=0;
     while (ino>0)
     {
-        iDigit=ino%10;
-        if (iDigit<6)
+        ////////////////////////////////////////////////////
+        if (ino<0)
         {
-            icnt++;
+            ino=-ino;   //UPDATOR
         }
+        //////////////////////////////////////////////////
+    iDigit=ino%10;
+
+        if (iDigit%2==0)
+         {
+            isum=isum+iDigit;
+         }
+
+        if (iDigit%2!=0)
+        {
+        sum=sum+iDigit;
+        }
+
         ino=ino/10;
-        
+
+        diff=isum-sum;
     }
-    return icnt;
+    return diff;
 }
 int main()
 {
     int ivalue=0;
     int iRet=0;
-
-    printf("enter the number=");
+    printf("Enter the number: ");
     scanf("%d",&ivalue);
     
-    iRet=Count(ivalue);
-    printf("Frequency of digit less than 6 is : %d",iRet);
+    iRet=CountDiff(ivalue);
+    printf("The difference are=%d",iRet);
      return 0;
 }

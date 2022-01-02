@@ -1,38 +1,33 @@
 /*
-Write the program accept number from user and count Frequency of 4 in it.
+write a program which accept number from user and return multiplication of all digits.
 */
-
 #include<stdio.h>
-int CountFour(int ino)
-{
+int MulDigit(int ino)
+{   //////////////////////////////////////////////
     if (ino<0)
     {
-        ino=-ino;
+        ino=-ino;   // UPDATOR
     }
+    /////////////////////////////////////////////
     
-    int iDigit=0;
-    int icnt=0;
-    while (ino>0)
-    {
-        iDigit=ino%10;
-        if (iDigit==4)
-        {
-            icnt++;
-        }
+     int iDigit=0;
+     int mul=1;
+     while (ino>0)
+     {
+         iDigit=ino%10;
+         mul=mul*iDigit;
          ino=ino/10;
-
-    }
-   return icnt;
+     }
+     return mul;
 }
 int main()
 {
     int ivalue=0;
     int iRet=0;
-    printf("enter the number=");
+    printf("Enter the number:\n");
     scanf("%d",&ivalue);
 
-    iRet=CountFour(ivalue);
-    printf("Frequency of 4 is=%d",iRet);
-
+    iRet=MulDigit(ivalue);
+    printf("The multiplecation are: %d",iRet);
      return 0;
 }
