@@ -1,42 +1,29 @@
 #include<stdio.h>
-#include<stdlib.h>
-int Smaller(int ptr[],int ino)
+#include<stdbool.h>
+bool CheckCapital(char c)
 {
-    int i=0;
-    int iMin=ptr[0];
-    for(i=0;i<ino;i++)
+    if ((c>='A')&&(c<='Z'))
     {
-        if(ptr[i]<iMin)
-        {
-            iMin=ptr[i];
-        }
-
+     return true;
     }
-    return iMin;
+    else{
+        return false;
+    }
 }
-
 int main()
+{ char ch='\0';
+bool bRet=false;
+
+printf("Enter the character: ");
+scanf("%c",&ch);
+bRet= CheckCapital(ch);
+if(bRet==true)
 {
-    int ilength=0;
-    int i=0; // for loop
-    int *ptr=NULL;
-    int iRet=0;
-
-    printf("Enter length:");
-    scanf("%d",&ilength);
-
-    ptr=(int*)malloc(sizeof(int)*ilength);
-
-    printf("Enter number:");
-    for(i=0;i<ilength;i++)
-    {
-        printf("Enter %d:",i+1);
-        scanf("%d",&ptr[i]);
-    }
-
-    iRet=Smaller(ptr,ilength);
-    printf(" Smaller%d",iRet);
-    free(ptr);
-
+    printf("Charcter is capital");
+}
+else
+{
+    printf("Character not capital ");
+}
     return 0;
 }

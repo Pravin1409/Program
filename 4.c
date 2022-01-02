@@ -1,28 +1,32 @@
 #include<stdio.h>
-#include<stdlib.h>
-void Display(int ptr[],int iSize)
+#include<stdbool.h>
+bool CheckSmall(char c)
 {
-    
+    if ((c>='a')&&(c<='z'))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
     
 }
+
 int main()
 {
-    int ilength=0;
-    int i=0;
-    int*ptr=0;
-    
-    printf("Enter the :");
-    scanf("%d",&ilength);
-
-    ptr=(int*)malloc(sizeof(int)*ilength);
-
-    for(i=0;i<ilength;i++)
+    char ch='\0';
+    bool bret=false;
+    printf("Enter character: ");
+    scanf("%c",&ch);
+    bret=CheckSmall(ch);
+    if (bret==true)
     {
-        scanf("%d",&ptr[i]);
+        printf("It is small");
     }
-     
-     Display(ptr,ilength);
-     free(ptr);
-
-    return 0;
+    else
+    {
+        printf("it not small");
+    }
+    
 }

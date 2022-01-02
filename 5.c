@@ -1,27 +1,37 @@
 #include<stdio.h>
-#include<stdlib.h>
-int Product(int p[],int ino)
+#include<stdbool.h>
+void Display(char c)
 {
+    if (c=='A')
+    {
+        printf("Exam time is 7 Am");
+    }
+    else if(c=='B')
+    {
+        printf("Exam time: 8.30 AM");
+    }
+    else if (c=='C')
+    {
+        printf("Exam time: 9.20 Am");
+    }
+    else if (c=='D')
+    {
+        printf("Exam time : 10.30 Am");
+    }
+    else
+    {
+        printf("Please enter correct Division");
+    }
+    
+    
     
 }
 int main()
-{int*p=NULL;
-
-int ilength=0,icnt=0,iRet=0;
-printf("Enter length");
-scanf("%d",&ilength);
-
-p=(int*)malloc(sizeof(int)*ilength);
-
-printf("Enter %d size:\n",ilength);
-for(icnt=0;icnt<ilength;icnt++)
 {
-    printf("Ente %d",icnt+1);
-    scanf("%d",&p[icnt]);
-}
-iRet=Product(p,ilength);
-printf("Result:%d",iRet);
-free(p);
+    char ch='\0';
 
+    printf("Enter char: ");
+    scanf("%c",&ch);
+    Display(ch);
     return 0;
 }

@@ -1,49 +1,31 @@
 #include<stdio.h>
-#include<stdlib.h>
-
-int Difference(int ptr[],int iSize)
+#include<stdbool.h>
+bool Check(char c)
 {
-    int i=0;
-    int iMax=ptr[0];
-    int iMin=ptr[0];
-    for (i=0;i<iSize;i++)
+    if ((c>='0')&&(c<='9'))
     {
-        if(ptr[i]>iMax)
-        {
-            iMax=ptr[i];
-        }
-        if (ptr[i]<iMin)
-        {
-            iMin=ptr[i];
-        }
-        
+        return true;
     }
-    return iMax-iMin;
+    else
+    {
+        return false;
+    }
 }
 int main()
 {
-    int ilength=0;
-    int i=0;
-    int*ptr=NULL;
-    int iRet=0;
-
-    printf("Enter the length:");
-    scanf("%d",&ilength);
-
-    ptr=(int*)malloc(sizeof(int)*ilength);
-
-    printf("Enter number: ");
-
-    for(i=0;i<ilength;i++)
-    {
-        printf("Enter %d: ",i+1);
-        scanf("%d",&ptr[i]);
-    }
-
-    iRet=Difference(ptr,ilength);
-
-    printf("Difference is %d",iRet);
-    free(ptr);
+    char ch='\0';
+     bool bRet=false;
+     printf("Enter char");
+     scanf("%c",&ch);
+     bRet=Check(ch);
+     if (bRet==true)
+     {
+         printf("it is digit");
+     }
+     else
+     {
+         printf("it is not digit");
+     }
+     
     return 0;
-
 }
