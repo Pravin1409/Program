@@ -1,40 +1,44 @@
 #include<stdio.h>
 #include<stdlib.h>
-void Display(int p[],int iSize)
+
+ int Check(int p[],int isize)
 {
     int icnt=0;
-    for(icnt=0;icnt<iSize;icnt++)
+    for(icnt=0;icnt<isize;icnt++)
     {
-        if (p[icnt]%3==0&&p[icnt]%5==0)
+        if (p[icnt]==11)
         {
-            printf("%d\t",p[icnt]);
+            icnt++;
         }
-        
+       
+       
     }
+     return icnt;
 }
 int main()
 {
-    int*p=0;
+    int ino=0;
     int icnt=0;
-    int isize=0;
+    int iRet=0;
+    int*p=NULL;
 
-    printf("Enter number of element:\n");
-    scanf("%d",&isize);
+    printf("Enter number:\n");
+    scanf("%d",&ino);
 
-    p=(int*)malloc(sizeof(int)*isize);
-    if (p==NULL)
-    {
-        printf("unable to allocate memory");
+    p=(int*)malloc(sizeof(int)*ino);
 
-    }
-    printf("enter %d number",isize);
-    for(icnt=0;icnt<isize;icnt++)
+    printf("enter %d element",ino);
+    for(icnt=0;icnt<ino;icnt++)
     {
         scanf("%d",&p[icnt]);
     }
-    Display(p,isize);
+
+    iRet=Check(p,ino);
+    printf("result:%d",iRet);
+
     free(p);
     
+
     
      return 0;
 }

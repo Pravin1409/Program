@@ -1,56 +1,42 @@
-/*
-Accept N number from user and return difference between summation of even element and sum of 
-odd element 
-*/
 #include<stdio.h>
 #include<stdlib.h>
-int Difference(int p[],int iSize)
+int CountEven(int p[],int iSize)
 {
-    int icnt=0,isum=0,isum1=0,diff=0;
+    int icnt=0,i=0;
     for(icnt=0;icnt<iSize;icnt++)
     {
-        if (icnt%2!=0)
+        if ((p[icnt]%2)==0)
         {
-            isum=isum+p[icnt];
+        
+            i++;
         }
+  
     }
-    
-     for(icnt=0;icnt<iSize;icnt++)
-    {
-        if (icnt%2==0)
-        {
-            isum1=isum1+p[icnt];
-        }
-        diff=isum-isum1;
-    }
-    return diff;
-    
+          return i;
 }
-
 int main()
 {
-    int isize=0;
     int icnt=0,iRet=0;
+    int size=0;
     int*p=NULL;
 
-    printf("Enter number of element:\n");
-    scanf("%d",&isize);
+    printf("Enter the size:\n");
+    scanf("%d",&size);
 
-    p=(int*)malloc(sizeof(int)*isize);
+    p=(int*)malloc(sizeof(int)*size);
     if(p==NULL)
     {
-        printf("unable to allocate memory");
-        return -1;
+        printf("unable");
     }
-    printf("Enter %d element:\n",isize);
 
-    for(icnt=0;icnt<isize;icnt++)
+    printf("Enter %d size\n",size);
+    for(icnt=0;icnt<size;icnt++)
     {
         scanf("%d",&p[icnt]);
     }
+    iRet=CountEven(p,size);
+    printf("Result: %d",iRet);
 
-    iRet=Difference(p,isize);
-    printf("Result %d",iRet);
     free(p);
      return 0;
 }

@@ -1,42 +1,49 @@
 #include<stdio.h>
 #include<stdlib.h>
-void Display(int p[],int iSize)
+int CountEven(int p[],int iSize)
 {
     int icnt=0;
-    for(icnt=0;icnt<iSize;icnt++)
+    int i=0,j=0,diff=0;
+    for(icnt=0;icnt<iSize/2;icnt++)
     {
-        if (p[icnt]%5==0)
+        if (p[icnt]%2!=0)
         {
-            printf("%d\t",p[icnt]);
-        }
         
+            i=icnt++;
+        }
+         if (p[icnt]%2==0)
+        {
+        
+            j=icnt++;
+        }
+  
+        diff=j-i;
     }
+          return diff;
 }
 int main()
 {
-    int isize=0, icnt=0,iRet=0;
+    int icnt=0,iRet=0;
+    int size=0;
     int*p=NULL;
 
-    printf("Enter number of element:\n");
-    scanf("%d",&isize);
+    printf("Enter the size:\n");
+    scanf("%d",&size);
 
-    p=(int*)malloc(sizeof(int)*isize);
-
-    if (p==NULL)
+    p=(int*)malloc(sizeof(int)*size);
+    if(p==NULL)
     {
-        printf("unable to allocate the memory:\n");
+        printf("unable");
     }
-    
 
-    printf("enter %d element\n",isize);
-    for(icnt=0;icnt<isize;icnt++)
+    printf("Enter %d size\n",size);
+    for(icnt=0;icnt<size;icnt++)
     {
-        printf("Enter element:%d\n",icnt+1);
         scanf("%d",&p[icnt]);
-
     }
+    iRet=CountEven(p,size);
+    printf("Result: %d",iRet);
 
-    Display(p,isize);
     free(p);
      return 0;
 }
