@@ -1,33 +1,39 @@
 import java.util.*;
 class Pattern
 {
-    public void pattern(int iRow,int iCol)
+    public void Pattern(int iRow,int iCol)
     {
         int i=0,j=0;
-        for(i=1;i<=iRow;i++)
+        char ch='A';
+        char ch1='a';
+        for(i=0,ch='A',ch1='a';i<=iRow;i++)
         {
-            for(j=1;j<=iCol;j++)
+            for(j=0,ch='A',ch1='a';j<=iCol;j++,ch1++)
             {
-                System.out.print(j);
-                System.out.print("\t");
+                if(j%2==0)
+                {
+                    System.out.print(ch1);
+                }
+                else
+                {
+                    System.out.print(ch);
+                }
             }
             System.out.println();
-        }
-    }
-}
-
+        } 
+    } 
+} 
 class pro2 
 {
     public static void main(String arg[])
     {
         Scanner sobj=new Scanner(System.in);
-        int iRow=0,iCol=0;
-        System.out.println("Enter row number:");
-        iRow=sobj.nextInt();
-        System.out.println("Enter cols:");
-        iCol=sobj.nextInt();
+        System.out.println("Enter row:");
+        int iRow=sobj.nextInt();
+
+        System.out.println("Enter col number:");
+        int iCol=sobj.nextInt();
         Pattern p=new Pattern();
-        p.pattern(iRow,iCol);
+        p.Pattern(iRow,iCol);
     }
-    
 }
