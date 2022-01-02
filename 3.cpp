@@ -1,24 +1,37 @@
 #include<iostream>
+#include<stdbool.h>
 using namespace std;
 typedef unsigned int UINT;
-UINT OnBit(UINT iNo,UINT iPos)
+bool ChkBit(UINT ino)
 {
-    UINT iMask=0x00000001;
-    iMask=iMask<<(iPos-1);
+    UINT iMask=0x00000900;
     UINT iResult=0;
-    iResult=iNo|iMask;
-    return iResult;
+    iResult=ino&iMask;
+    if(iResult==iMask)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 int main()
 {
-    UINT ino=0,iPos=0,iRet=0;
+    UINT ino=0;
+    bool bRet=false;
+
     cout<<"Enter number:";
     cin>>ino;
 
-    cout<<"Enter Position:";
-    cin>>iPos;
-
-    iRet=OnBit(ino,iPos);
-    cout<<"modified number are:"<<iRet<<"\n";
+    bRet=ChkBit(ino);
+    if(bRet==true)
+    {
+        cout<<"bit on";
+    }
+    else
+    {
+        cout<<"bit off";
+    }
     return 0;
 }

@@ -1,37 +1,31 @@
 #include<iostream>
-#include<stdbool.h>
 using namespace std;
 typedef unsigned int UINT;
-bool ChkBit(UINT iNo,UINT iPos)
+UINT CountOne(UINT iNo)
 {
-    UINT imask=0x00000001;
-    imask=imask<<(iPos-1);
+    UINT icnt=0,i=0;
+    UINT iMask=0x00000001;
     UINT iResult=0;
-    iResult=iNo&imask;
-    if(iResult==imask)
+  
+    for(i=1;i<iNo;i++)
     {
-        return true;
+        iResult=iNo&iMask;
+        if(iResult!=0)
+        {
+            icnt++;
+        }
+        iMask=iMask<<1;
     }
-    else
-    {
-        return false;
-    }
+    return icnt;
 }
 int main()
 {
-    UINT ino=0,iPos=0;
-    bool bRet=false;
-    cout<<"Enter enumber:\n";
+    UINT ino=0,iRet=0;
+    cout<<"Enter number:";
     cin>>ino;
-    cout<<"Enter position:\n";
-    cin>>iPos;
-    bRet=ChkBit(ino,iPos);
-    if(bRet==true)
-    {
-        cout<<"Bit on\n";
-    }
-    else
-    {
-        cout<<"bit off\n";
-    }
+    
+    iRet=CountOne(ino);
+    cout<<"Count Are:"<<iRet<<"\n";
+
+    return 0;
 }
