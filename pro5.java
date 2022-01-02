@@ -1,67 +1,34 @@
 import java.util.*;
-
-
-class ArrayX
+class array
 {
-    public int Arr[];
-    public ArrayX(int isize)
+    public int Multiplecation(int ino)
     {
-        Arr=new int [isize];
-    }
+        int mul=1;
+        int iDigit=0;
+        while(ino!=0) 
+        {
+            iDigit=ino%10;
+            mul=mul*iDigit;
 
-    public void Accept()
-    {
-        Scanner sobj=new Scanner(System.in);
-        System.out.println("Enter elemnts:");
-        int i=0;
-        for(i=0;i<Arr.length;i++)
-        {
-            Arr[i]=sobj.nextInt();
-        }
-    }
+            ino=ino/10;
 
-    public void Display()
-    {
-        System.out.println("Elemente are:");
-        int i=0;
-        for(i=0;i<Arr.length;i++)
-        {
-            System.out.println(Arr[i]);
         }
-    }
-}
-class Marvellous extends ArrayX
-{
-    public Marvellous(int ivalue)
-    {
-        super(ivalue);
-    }
-    public void Show()
-    {
-        int i=0;
-        for(i=0;i<Arr.length;i++)
-        {
-            if(Arr[i]%11==0)
-            {
-                System.out.println(Arr[i]);
-            }
-        }
+        return mul;
     }
 }
 class pro5
 {
     public static void main(String arg[])
     {
-        Scanner sobj=new Scanner(System.in);
-        int ilength=0;
-        System.out.println("Enter size:");
-        ilength=sobj.nextInt();
+        Scanner obj=new Scanner(System.in);
+        int ino=0;
+        int iRet=0;
+        System.out.println("Enter the number:");
+        ino=obj.nextInt();
 
-        Marvellous mobj=new Marvellous(ilength);
+        array a=new array();
+        iRet=a.Multiplecation(ino);
+        System.out.println("Multiplication are:"+iRet);
 
-        mobj.Accept();
-        mobj.Display();
-        System.out.println("number are:");
-        mobj.Show();
     }
 }

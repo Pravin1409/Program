@@ -1,41 +1,31 @@
-
 import java.util.*;
-class StringX
+class array
 {
-    public String str;
-    public void Accept()
+    public int CountEven(int ino)
     {
-    Scanner sobj=new Scanner(System.in);
-    System.out.println("Enter String:");
-    str=sobj.nextLine();
-    
-    }
-}
-class Marvellos extends StringX
-{
-    public int Count()
-    {
-        int i=0,icnt=0;
-        char Arr[]=str.toCharArray();
-        for(i=0;i<Arr.length;i++)
+        int iDigit=0,icnt=0;
+        while(ino!=0)
         {
-            if(Arr[i]>'A'&&Arr[i]<'Z')
+            iDigit=ino%10;
+            if(iDigit%2==0)
             {
                 icnt++;
             }
+            ino=ino/10;
         }
         return icnt;
     }
+
 }
-class pro1
-{
-    public static void main(String arg []) 
+class pro1 {
+    public static void main(String arg[])
     {
-        int iRet=0;
-        Marvellos mobj=new Marvellos();
-        mobj.Accept();
-        iRet=mobj.Count();
-        System.out.println("Count Are:"+iRet);
+        Scanner obj=new Scanner(System.in);
+        int ino=0,iRet=0;
+        System.out.println("Enter the number :");
+        ino=obj.nextInt();
+        array a=new array();
+        iRet=a.CountEven(ino);
+        System.out.print("Count are:"+iRet);
     }
-   
 }
