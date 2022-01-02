@@ -1,102 +1,107 @@
 #include<iostream>
 using namespace std;
-
 typedef struct node
 {
     int data;
     struct node*next;
+    struct node*prev;
 }NODE,*PNODE;
-
-class SinglyLL
+class DoublyLL
 {
     private:
-    PNODE first;
+    PNODE frist;
     int size;
     public:
-    SinglyLL()
+    DoublyLL()
     {
-        first=NULL;
+        frist=NULL;
         size=0;
     }
     void InsertFirst(int);
     void InsertLast(int);
-    void InsertAtPos(int ,int);
     void DeleteFirst();
     void DeleteLast();
+    void InsertAtPos(int,int);
     void DeleteAtPos(int);
     void Display();
     int Count();
 };
-void SinglyLL::InsertFirst(int no)
-{
-    PNODE newn=new NODE;
-   newn->data=no;
-   newn->next=NULL;
-   if(first==NULL)
-   {
-       first=newn;
-   }
-   else
-   {
-       newn->next=first;
-       first=newn;
-   }
-   size++;
-}
-void SinglyLL::InsertLast(int no)
+void DoublyLL::InsertFirst(int no)
 {
     PNODE newn=new NODE;
     newn->data=no;
     newn->next=NULL;
-    if(first==NULL)
+    newn->prev=NULL;
+
+    if(frist==NULL)
     {
-        first=newn;
+        frist=newn;
     }
     else
     {
-        PNODE temp=first;
+        newn->next=frist;
+        frist->prev=newn;
+        frist=newn;
+    }
+    size++;
+}
+
+void DoublyLL::InsertLast(int no)
+{
+    PNODE newn=new NODE;
+    newn->data=no;
+    newn->next=NULL;
+    newn->prev=NULL;
+    if(frist==NULL)
+    {
+        frist=newn;
+    }
+    else
+    {
+        PNODE temp=frist;
         while(temp->next!=NULL)
         {
             temp=temp->next;
         }
         temp->next=newn;
+        newn->prev=temp;
     }
     size++;
 }
-void SinglyLL::DeleteFirst()
+
+void DoublyLL::DeleteFirst()
 {
-    if(first==NULL)
+    if(frist==NULL)
     {
         return;
     }
-    else if(first->next==NULL)
+    else if(frist->next==NULL)
     {
-        delete first;
-        first=NULL;
+        delete frist;
+        frist=NULL;
     }
     else
     {
-        PNODE temp=first;
-        first=first->next;
+        PNODE temp=frist;
+        frist=frist->next;
         delete temp;
     }
     size--;
-
 }
-void SinglyLL::DeleteLast()
+void DoublyLL::DeleteLast()
 {
-    if(first==NULL)
+    if(frist==NULL)
     {
         return;
     }
-    else if(first->next==NULL)
+    else if(frist->next==NULL)
     {
-        delete first;
-        first=NULL;
+        delete frist;
+        frist=NULL;
     }
     else
     {
-        PNODE temp=first;
+        PNODE temp=frist;
         while(temp->next->next!=NULL)
         {
             temp=temp->next;
@@ -106,9 +111,23 @@ void SinglyLL::DeleteLast()
     }
     size--;
 }
-void SinglyLL::InsertAtPos(int no,int pos)
+void DoublyLL::Display()
 {
-    if((pos<1)||(pos>size+1))
+    PNODE temp=frist;
+    for(int i=1;i<=size;i++)
+    {
+        cout<<temp->data<<"\t";
+        temp=temp->next;
+    }
+    cout<<"\n";
+}
+void DoublyLL::InsertAtPos(int no,int pos)
+{
+    PNODE newn=new NODE;
+    newn->data=no;
+    newn->next=NULL;
+    newn->prev=NULL;
+    if(pos<1||pos>size+1)
     {
         cout<<"Enter valid position\n";
         return;
@@ -123,22 +142,20 @@ void SinglyLL::InsertAtPos(int no,int pos)
     }
     else
     {
-        PNODE newn=new NODE;
-        newn->data=no;
-        newn->next=NULL;
-        PNODE temp=first;
+        PNODE temp=frist;
         for(int i=1;i<pos-1;i++)
         {
             temp=temp->next;
         }
         newn->next=temp->next;
+        temp->next->prev=newn;
         temp->next=newn;
+        newn->prev=temp;
     }
     size++;
-
 }
 
-void SinglyLL::DeleteAtPos(int pos)
+void DoublyLL::DeleteAtPos(int pos)
 {
     if((pos<1)||(pos>size))
     {
@@ -155,53 +172,36 @@ void SinglyLL::DeleteAtPos(int pos)
     }
     else
     {
-        PNODE temp=first;
-        PNODE target=NULL;
+        PNODE temp=frist;
         for(int i=1;i<pos-1;i++)
         {
             temp=temp->next;
         }
-        target=temp->next;
-        temp->next=target->next;
-        delete target;
+    
+        temp->next=temp->next->next;
+        delete temp->next->prev;
+        temp->next->prev=temp;
     }
     size--;
 }
-
-int SinglyLL::Count()
+int DoublyLL::Count()
 {
     return size;
 }
-
-void SinglyLL::Display()
-{
-    PNODE temp=first;
-    for(int i=1;i<=size;i++)
-    {
-        cout<<temp->data<<"\t";
-        temp=temp->next;
-    }
-    cout<<"\n";
-}
-
-
 int main()
 {
-    int iRet=0;
-    SinglyLL obj;
-    obj.InsertFirst(55);
-    obj.InsertFirst(25);
-    obj.InsertFirst(15);
-    obj.InsertFirst(8);
+    DoublyLL obj;
+    obj.InsertFirst(51);
+    obj.InsertFirst(21);
+    obj.InsertFirst(11);
     obj.InsertLast(101);
     obj.InsertLast(111);
     // obj.DeleteFirst();
-    // obj.DeleteFirst();
-    obj.DeleteLast();
-    obj.InsertAtPos(8,4);
+    // obj.DeleteLast();
+    obj.InsertAtPos(8,3);
     obj.DeleteAtPos(3);
     obj.Display();
-    iRet=obj.Count();
-    cout<<"Count Are:"<<iRet<<"\n";
+    int iRet=obj.Count();
+    cout<<"count Are:"<<iRet<<"\n";
     return 0;
 }
