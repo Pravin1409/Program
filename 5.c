@@ -1,16 +1,36 @@
 #include<stdio.h>
-void Accept(int ino)
+#define TRUE 1
+#define FALSE 0
+typedef int BOOL;
+
+BOOL Check(int ino)
 {
-  int icnt=0;
-  for(icnt=0;icnt<=ino;icnt++)
-  {
-      printf("* \t");
-  }
+ if((ino%2)==0)
+ {
+     return TRUE;
+
+ }
+ else
+ {
+     return FALSE;
+ }
 }
 int main()
 {
-    int ivalue =0;
-    ivalue=5;
-    Accept(ivalue);
+    int ivalue=0;
+    BOOL bRet=FALSE;
+    printf("enter the number =");
+    scanf("%d",&ivalue);
+    bRet=Check(ivalue);
+    if(bRet==0)
+    {
+        printf("the number is even ");
+    }
+    else
+    {
+
+        printf("the number is odd");
+    }
+
     return 0;
 }

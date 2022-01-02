@@ -1,22 +1,18 @@
 #include<stdio.h>
-int Divide(int ino1,int ino2)
+int Display(int ino)
 {
-    int iAns=0;
-    if(ino2<0)
+    int icnt=0;
+    for (icnt = 0; icnt<ino; icnt++)
     {
-        return -1;
+        printf("*");
     }
-    iAns=ino1/ino2;
-    return iAns;
-}
 
+}
 int main()
 {
-    int ivalue1=20,ivalue2=2;
-     int iRet=0;
-
-    iRet=Divide(ivalue1,ivalue2);
-    printf("division is %d",iRet);
+    int ivalue=0;
+    printf("enter the number=");
+    scanf("%d",&ivalue);
+    Display(ivalue);
     return 0;
 }
-

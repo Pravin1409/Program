@@ -1,49 +1,30 @@
 #include<stdio.h>
-
-typedef int BOOL;
-#define TRUE 1
-#define FALSE 0
-int Check(int ino)
+void Display(int ivalue)
 {
-    if((ino%5)==0)
-    {
-        return TRUE;
-    }
-    else
-    {
-        return FALSE;
-    }
+int icnt=0;
+
+
+for (icnt=ivalue;icnt>=1;icnt--)        // input 12  ,3
+{                                    //output 12  12  12
+    printf("%d\n",icnt);
+    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 
 int main()
 {
-int ivalue=0;
-BOOL bRet=FALSE;
-printf("enter the number=");
-scanf("%d",&ivalue);
-bRet=Check(ivalue);
-if(bRet==TRUE)
-{
-    printf("divisible 5");
-}
-else
-{
-    printf("not divisible 5");
-}
-return 0;
+ int ino=0;
+//  int icount=3;
+ printf("enter the number=");
+ scanf("%d",&ino);
+
+
+//  printf("enter frequency");
+//  scanf("%d",&icount);
+
+
+ Display(ino);
+ return 0;
 }

@@ -1,15 +1,18 @@
 #include<stdio.h>
-void Display()
+int Display(int ino)
 {
-    int i=0;
-    for(i=0;i<=5;i++)
+   while (ino>0)
     {
-        printf("pravin \n");
+        printf("*");
+        ino--;
+        
     }
 }
-
 int main()
 {
-    Display();
+    int ivalue=0;
+    printf("enter the number=");
+    scanf("%d",&ivalue);
+    Display(ivalue);
     return 0;
 }
